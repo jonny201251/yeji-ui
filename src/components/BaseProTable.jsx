@@ -4,17 +4,16 @@ import { OperateButton, ToolBarButton } from './index'
 import { proTableRequest } from '../utils'
 
 export default (props) => {
-  const { path, width } = props
+  const { columns, path, width } = props
 
+  console.log(props.columns)
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const actionRef = useRef()
-  const columns = [
-    { ...props.columns },
-    {
-      title: '操作', valueType: 'option', fixed: 'right',
-      render: (text, record, _, action) => [<OperateButton record={record} path={path} actionRef={actionRef}/>]
-    }
-  ]
+  //
+  columns.push({
+    title: '操作', valueType: 'option', fixed: 'right',
+    render: (text, record, _, action) => [<OperateButton record={record} path={path} actionRef={actionRef}/>]
+  })
 
   return <ProTable
     bordered

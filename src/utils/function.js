@@ -41,13 +41,12 @@ export function post(url, values) {
 export async function proTableRequest(params, sorter, filter) {
   let url = params.listUrl
   delete params.listUrl
-  const res = await get(url, params)
-  if (res) {
-    return {
-      success: true,
-      data: res.dataList,
-      total: res.total,
-      page: res.totalPage
+  const data = await get(url, params)
+  if (data) {
+    if (data.dataList) {
+      return { success: true, data: data.dataList, total: data.total, page: data.totalPage }
+    } else {
+      return { success: true, data: data, total: data.length, page: 1 }
     }
   }
 }
