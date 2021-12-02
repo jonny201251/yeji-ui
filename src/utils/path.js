@@ -24,5 +24,6 @@ export const sysDeptPath = {
   get: contextPath + '/sysDept/get',
   add: contextPath + '/sysDept/add',
   edit: contextPath + '/sysDept/edit',
-  delete: contextPath + '/sysDept/delete'
+  delete: contextPath + '/sysDept/delete',
+  getTreeSelect: contextPath + '/sysDept/getTreeSelect'
 }

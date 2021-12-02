@@ -6,20 +6,22 @@ import { proTableRequest } from '../utils'
 export default (props) => {
   const { columns, path, width } = props
 
-  console.log(props.columns)
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const actionRef = useRef()
-  //
-  columns.push({
-    title: '操作', valueType: 'option', fixed: 'right',
-    render: (text, record, _, action) => [<OperateButton record={record} path={path} actionRef={actionRef}/>]
-  })
+
+  let newColumns = columns.map(item => item)
+  newColumns.push(
+    {
+      title: '操作', valueType: 'option', fixed: 'right',
+      render: (text, record, _, action) => [<OperateButton record={record} path={path} actionRef={actionRef}/>]
+    }
+  )
 
   return <ProTable
     bordered
     rowKey='id'
     actionRef={actionRef}
-    columns={columns}
+    columns={newColumns}
     //列表数据
     params={{ listUrl: path.list }}
     request={proTableRequest}
