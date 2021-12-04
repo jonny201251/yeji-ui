@@ -28,10 +28,7 @@ export default (props) => {
     <SchemaField>
       <SchemaField.Void
         x-component="FormLayout"
-        x-component-props={{
-          labelCol: 6,
-          wrapperCol: 16
-        }}
+        x-component-props={{ labelCol: 6, wrapperCol: 16 }}
       >
         <SchemaField.Number name="id" x-decorator="FormItem" x-component="Input"/>
         <SchemaField.String

@@ -42,17 +42,13 @@ export default (props) => {
     if (data6) {
       form.query('groupId').take().dataSource = data6
     }
-
   }, [])
 
   return <Form form={form} layout="horizontal">
     <SchemaField>
       <SchemaField.Void
         x-component="FormLayout"
-        x-component-props={{
-          labelCol: 6,
-          wrapperCol: 16
-        }}
+        x-component-props={{ labelCol: 6, wrapperCol: 16 }}
       >
         <SchemaField.Number name="id" x-decorator="FormItem" x-component="Input"/>
         <SchemaField.String name="name" required title="姓名" x-decorator="FormItem" x-component="Input"/>
