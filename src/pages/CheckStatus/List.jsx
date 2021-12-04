@@ -1,5 +1,5 @@
 import { BaseProTable } from '../../components'
-import { checkSetPath } from '../../utils'
+import { checkStatusPath } from '../../utils'
 
 export default () => {
   let columns = [
@@ -15,5 +15,5 @@ export default () => {
     { title: '停止时间', dataIndex: 'endDate', valueType: 'date' }
   ]
 
-  return <BaseProTable path={checkSetPath} columns={columns}/>
+  return <BaseProTable path={checkStatusPath} columns={columns}/>
 }

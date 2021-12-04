@@ -32,7 +32,7 @@ export default (props) => {
       return false
     }}
     //
-    options={{ fullScreen: true, density: false }}
+    options={{ fullScreen: false, density: false }}
     headerTitle={
       <ToolBarButton path={path} actionRef={actionRef} selectedRowKeys={selectedRowKeys} width={width}/>
     }

@@ -1,6 +1,7 @@
 import request from 'umi-request'
 import { Modal } from 'antd'
 import { history } from 'umi'
+import * as utils from '../utils'
 
 export function get(url, params) {
   if (!url) {

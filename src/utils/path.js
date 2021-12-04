@@ -1,4 +1,4 @@
-import {contextPath} from './other'
+import { contextPath } from './other'
 //系统管理
 import SysDicForm from '../pages/SysDic/Form'
 import SysDicList from '../pages/SysDic/List'
@@ -9,8 +9,12 @@ import SysRoleList from '../pages/SysRole/List'
 import SysPermissionForm from '../pages/SysPermission/Form'
 import SysPermissionList from '../pages/SysPermission/List'
 //基础信息设置
-import CheckSetForm from '../pages/CheckSet/Form'
-import CheckSetList from '../pages/CheckSet/List'
+import CheckStatusForm from '../pages/CheckStatus/Form'
+import CheckStatusList from '../pages/CheckStatus/List'
+import CheckUserForm from '../pages/CheckUser/Form'
+import CheckUserList from '../pages/CheckUser/List'
+import DeptGroupForm from '../pages/DeptGroup/Form'
+import DeptGroupList from '../pages/DeptGroup/List'
 //人员评分
 //部门评分
 //flag、导出名称、sysPermission.path,三个地方必须一致
@@ -23,7 +27,8 @@ export const sysDicPath = {
   get: contextPath + '/sysDic/get',
   add: contextPath + '/sysDic/add',
   edit: contextPath + '/sysDic/edit',
-  delete: contextPath + '/sysDic/delete'
+  delete: contextPath + '/sysDic/delete',
+  getLabelValue: contextPath + '/sysDic/getLabelValue'
 }
 export const sysDeptPath = {
   flag: 'sysDeptPath',
@@ -33,7 +38,8 @@ export const sysDeptPath = {
   add: contextPath + '/sysDept/add',
   edit: contextPath + '/sysDept/edit',
   delete: contextPath + '/sysDept/delete',
-  getTreeSelect: contextPath + '/sysDept/getTreeSelect'
+  getTreeSelect: contextPath + '/sysDept/getTreeSelect',
+  getIdNameMap: contextPath + '/sysDept/getIdNameMap',
 }
 export const sysRolePath = {
   flag: 'sysRolePath',
@@ -54,13 +60,33 @@ export const sysPermissionPath = {
   delete: contextPath + '/sysPermission/delete',
   getTreeSelect: contextPath + '/sysPermission/getTreeSelect'
 }
-
-export const checkSetPath = {
-  flag: 'checkSetPath',
-  Form: CheckSetForm, List: CheckSetList,
-  list: contextPath + '/checkSet/list',
-  get: contextPath + '/checkSet/get',
-  add: contextPath + '/checkSet/add',
-  edit: contextPath + '/checkSet/edit',
-  delete: contextPath + '/checkSet/delete'
+//基础信息设置
+export const checkStatusPath = {
+  flag: 'checkStatusPath',
+  Form: CheckStatusForm, List: CheckStatusList,
+  list: contextPath + '/checkStatus/list',
+  get: contextPath + '/checkStatus/get',
+  add: contextPath + '/checkStatus/add',
+  edit: contextPath + '/checkStatus/edit',
+  delete: contextPath + '/checkStatus/delete'
+}
+export const checkUserPath = {
+  flag: 'checkUserPath',
+  Form: CheckUserForm, List: CheckUserList,
+  list: contextPath + '/checkUser/list',
+  get: contextPath + '/checkUser/get',
+  add: contextPath + '/checkUser/add',
+  edit: contextPath + '/checkUser/edit',
+  delete: contextPath + '/checkUser/delete'
+}
+export const deptGroupPath = {
+  flag: 'deptGroupPath',
+  Form: DeptGroupForm, List: DeptGroupList,
+  list: contextPath + '/deptGroup/list',
+  get: contextPath + '/deptGroup/get',
+  add: contextPath + '/deptGroup/add',
+  edit: contextPath + '/deptGroup/edit',
+  delete: contextPath + '/deptGroup/delete',
+  getLabelValue: contextPath + '/deptGroup/getLabelValue',
+  getIdNameMap: contextPath + '/deptGroup/getIdNameMap',
 }

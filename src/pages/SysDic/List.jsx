@@ -30,7 +30,7 @@ export default () => {
       return false
     }}
     //
-    options={{ fullScreen: true, density: false }}
+    options={{ fullScreen: false, density: false }}
     headerTitle={
       <ToolBarButton path={sysDicPath} actionRef={actionRef} selectedRowKeys={selectedRowKeys}/>
     }
