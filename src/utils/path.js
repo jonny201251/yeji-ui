@@ -8,7 +8,11 @@ import SysRoleForm from '../pages/SysRole/Form'
 import SysRoleList from '../pages/SysRole/List'
 import SysPermissionForm from '../pages/SysPermission/Form'
 import SysPermissionList from '../pages/SysPermission/List'
-
+//基础信息设置
+import CheckSetForm from '../pages/CheckSet/Form'
+import CheckSetList from '../pages/CheckSet/List'
+//人员评分
+//部门评分
 //flag、导出名称、sysPermission.path,三个地方必须一致
 
 //系统管理
@@ -49,4 +53,14 @@ export const sysPermissionPath = {
   edit: contextPath + '/sysPermission/edit',
   delete: contextPath + '/sysPermission/delete',
   getTreeSelect: contextPath + '/sysPermission/getTreeSelect'
+}
+
+export const checkSetPath = {
+  flag: 'checkSetPath',
+  Form: CheckSetForm, List: CheckSetList,
+  list: contextPath + '/checkSet/list',
+  get: contextPath + '/checkSet/get',
+  add: contextPath + '/checkSet/add',
+  edit: contextPath + '/checkSet/edit',
+  delete: contextPath + '/checkSet/delete'
 }

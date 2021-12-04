@@ -94,7 +94,7 @@ export default () => {
       if (arr.length > 1) {
         flagKey = arr[index + 1]
       } else {
-        flagKey = '首页'
+        flagKey = '我的桌面'
       }
     } else {
       flagKey = arr[index - 1]
@@ -181,12 +181,13 @@ export default () => {
         </Menu>
       </Sider>
       <Content style={{ minHeight: document.body.clientHeight - 70 }}>
+
         <Tabs tabBarStyle={{ background: '#fff', height: 60 }}
               tabBarGutter={0} animated={false}
               activeKey={activeKey} onTabClick={key => setActiveKey(key)}>
-          <Tabs.TabPane tab="首页" key="首页">
+          <Tabs.TabPane tab="我的桌面" key="我的桌面">
             <div style={{ padding: '0px 12px' }}>
-              首页
+              我的桌面
             </div>
           </Tabs.TabPane>
           {renderTabPane()}
@@ -194,4 +195,5 @@ export default () => {
       </Content>
     </Layout>
   </Layout>
+
 }

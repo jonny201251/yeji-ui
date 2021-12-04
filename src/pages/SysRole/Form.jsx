@@ -1,10 +1,9 @@
-import { Form, FormItem, FormLayout, Input, TreeSelect } from '@formily/antd'
+import { Form, FormItem, FormLayout, Input } from '@formily/antd'
 import { createSchemaField } from '@formily/react'
 import { useEffect } from 'react'
-import { get, sysDeptPath } from '../../utils'
 
 const SchemaField = createSchemaField({
-  components: { FormLayout, FormItem, Input, TreeSelect }
+  components: { FormLayout, FormItem, Input }
 })
 
 export default (props) => {
