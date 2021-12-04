@@ -15,6 +15,8 @@ import CheckUserForm from '../pages/CheckUser/Form'
 import CheckUserList from '../pages/CheckUser/List'
 import DeptGroupForm from '../pages/DeptGroup/Form'
 import DeptGroupList from '../pages/DeptGroup/List'
+import LeadDeptForm from '../pages/LeadDept/Form'
+import LeadDeptList from '../pages/LeadDept/List'
 //人员评分
 //部门评分
 //flag、导出名称、sysPermission.path,三个地方必须一致
@@ -77,7 +79,8 @@ export const checkUserPath = {
   get: contextPath + '/checkUser/get',
   add: contextPath + '/checkUser/add',
   edit: contextPath + '/checkUser/edit',
-  delete: contextPath + '/checkUser/delete'
+  delete: contextPath + '/checkUser/delete',
+  getLeadName: contextPath + '/checkUser/getLeadName',
 }
 export const deptGroupPath = {
   flag: 'deptGroupPath',
@@ -89,4 +92,13 @@ export const deptGroupPath = {
   delete: contextPath + '/deptGroup/delete',
   getLabelValue: contextPath + '/deptGroup/getLabelValue',
   getIdNameMap: contextPath + '/deptGroup/getIdNameMap',
+}
+export const leadDeptPath = {
+  flag: 'leadDeptPath',
+  Form: LeadDeptForm, List: LeadDeptList,
+  list: contextPath + '/leadDept/list',
+  get: contextPath + '/leadDept/get',
+  add: contextPath + '/leadDept/add',
+  edit: contextPath + '/leadDept/edit',
+  delete: contextPath + '/leadDept/delete',
 }

@@ -20,6 +20,7 @@ export default () => {
     rowKey='id'
     actionRef={actionRef}
     columns={columns}
+    columnEmptyText={true}
     //列表数据
     params={{ listUrl: sysDicPath.list }}
     request={proTableRequest}

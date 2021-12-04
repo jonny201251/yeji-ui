@@ -4,7 +4,7 @@ import { OperateButton, ToolBarButton } from './index'
 import { proTableRequest } from '../utils'
 
 export default (props) => {
-  const { columns, path, width } = props
+  const { columns, path, width, rowKey } = props
 
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const actionRef = useRef()
@@ -19,9 +19,10 @@ export default (props) => {
 
   return <ProTable
     bordered
-    rowKey='id'
+    rowKey={rowKey || 'id'}
     actionRef={actionRef}
     columns={newColumns}
+    columnEmptyText={true}
     //列表数据
     params={{ listUrl: path.list }}
     request={proTableRequest}
