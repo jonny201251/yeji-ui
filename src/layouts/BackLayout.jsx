@@ -45,7 +45,7 @@ export default () => {
       return <Menu.SubMenu
         key="xxxx"
         icon={<SettingOutlined/>}
-        title='测试管理'
+        title='基础信息设置'
         onClick={onClick}
       >
         <Menu.Item key="1-数据字典-sysDicPath">数据字典</Menu.Item>
@@ -53,6 +53,15 @@ export default () => {
         <Menu.Item key="3-角色管理-sysRolePath">角色管理</Menu.Item>
         <Menu.Item key="4-菜单管理-sysPermissionPath">权限管理</Menu.Item>
         <Menu.Item key="5-用户管理-sysUserPath">用户管理</Menu.Item>
+        <Menu.Item key="6-考核启动和停止-checkSetPath">考核启动和停止</Menu.Item>
+        <Menu.Item key="7-考核人员信息-sysUserPath">考核人员信息</Menu.Item>
+        <Menu.Item key="8-主管党支部的党委领导-sysUserPath">主管党支部的党委领导</Menu.Item>
+        <Menu.Item key="9-公司领导主管部门-sysUserPath">公司领导主管部门</Menu.Item>
+        <Menu.Item key="10-被考核的人员角色-sysUserPath">被考核的人员角色</Menu.Item>
+        <Menu.Item key="11-部门间的评分方向-sysUserPath">部门间的评分方向</Menu.Item>
+        <Menu.Item key="11-被考核的人员类型的考核项目-sysUserPath">被考核的人员类型的考核项目</Menu.Item>
+        <Menu.Item key="11-部门班组-sysUserPath">部门班组</Menu.Item>
+        <Menu.Item key="11-党支部与部门-sysUserPath">党支部与部门</Menu.Item>
       </Menu.SubMenu>
     }
     return menuList && menuList.map(item => {
@@ -165,7 +174,7 @@ export default () => {
       </div>
     </Header>
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed} style={{ background: '#fff' }}>
+      <Sider trigger={null} collapsible collapsed={collapsed} style={{ background: '#fff' }} width={300}>
         <Menu theme="light" mode="inline" selectedKeys={[activeKey]} openKeys={openKeys}
               onOpenChange={(openkeys) => setOpenKeys(openkeys)}>
           {renderMenu(utils.session.getItem('menuList'))}
