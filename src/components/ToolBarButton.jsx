@@ -45,7 +45,7 @@ export default (props) => {
         icon: <QuestionCircleOutlined/>,
         content: <p style={{ fontSize: 16 }}>确定要删除{selectedRowKeys.length}条数据?</p>,
         onOk: async (close) => {
-          const data = await get(path.delete, { arr: selectedRowKeys })
+          const data = await get(path.delete, { idArr: selectedRowKeys })
           if (data) {
             actionRef.current.clearSelected()
             actionRef.current.reload()

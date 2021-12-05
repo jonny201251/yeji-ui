@@ -16,6 +16,7 @@ const SchemaField = createSchemaField({
 })
 export default (props) => {
   let { form, record } = props
+
   useEffect(async () => {
     if (record) {
       form.setValues(record)
@@ -25,11 +26,12 @@ export default (props) => {
       form.query('userName').take().dataSource = data
     }
   }, [])
+
   return <Form form={form}>
     <SchemaField>
       <SchemaField.Void x-component="FormLayout" x-component-props={{ labelCol: 6, wrapperCol: 16 }}>
-        <SchemaField.String name="userName" required title="公司领导姓名" x-decorator="FormItem" x-component="Select"/>
-        <SchemaField.Array name="deptIdList" title="主管部门" x-decorator="FormItem" x-component="ArrayItems">
+        <SchemaField.String name="userName" required title="姓名" x-decorator="FormItem" x-component="Select"/>
+        <SchemaField.Array name="deptIdList" title="主管的部门" x-decorator="FormItem" x-component="ArrayItems">
           <SchemaField.Void x-component="Space">
             <SchemaField.Number
               name="deptId" required x-decorator="FormItem" x-component="TreeSelect"
