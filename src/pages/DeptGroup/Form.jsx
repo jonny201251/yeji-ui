@@ -22,16 +22,14 @@ export default (props) => {
     }
   }, [])
 
-  return <Form form={form} layout="horizontal">
+  return <Form form={form}>
     <SchemaField>
-      <SchemaField.Void
-        x-component="FormLayout"
-        x-component-props={{ labelCol: 6, wrapperCol: 16 }}
-      >
+      <SchemaField.Void x-component="FormLayout" x-component-props={{ labelCol: 6, wrapperCol: 16 }}>
         <SchemaField.Number name="id" x-decorator="FormItem" x-component="Input"/>
         <SchemaField.String name="name" required title="班组名称" x-decorator="FormItem" x-component="Input"/>
-        <SchemaField.Number name="deptId" required title="所在部门" x-decorator="FormItem"
-                            x-component="TreeSelect" x-component-props={{ treeDefaultExpandAll: true }}/>
+        <SchemaField.Number
+          name="deptId" required title="所在部门" x-decorator="FormItem"
+          x-component="TreeSelect" x-component-props={{ treeDefaultExpandAll: true }}/>
         <SchemaField.String name="remark" title="备注" x-decorator="FormItem" x-component="Input.TextArea"/>
       </SchemaField.Void>
     </SchemaField>

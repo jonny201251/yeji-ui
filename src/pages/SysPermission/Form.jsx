@@ -24,12 +24,9 @@ export default (props) => {
     }
   }, [])
 
-  return <Form form={form} layout="horizontal">
+  return <Form form={form}>
     <SchemaField>
-      <SchemaField.Void
-        x-component="FormLayout"
-        x-component-props={{ labelCol: 6, wrapperCol: 16 }}
-      >
+      <SchemaField.Void x-component="FormLayout" x-component-props={{ labelCol: 6, wrapperCol: 16 }}>
         <SchemaField.Number name="id" x-decorator="FormItem" x-component="Input"/>
         <SchemaField.String
           name="type" required title="权限类型" x-decorator="FormItem" x-component="Radio.Group"
@@ -39,8 +36,9 @@ export default (props) => {
             { label: '按钮', value: '按钮' }
           ]}
         />
-        <SchemaField.Number name="pid" title="上级菜单" x-decorator="FormItem"
-                            x-component="TreeSelect" x-component-props={{ treeDefaultExpandAll: true }}/>
+        <SchemaField.Number
+          name="pid" title="上级菜单" x-decorator="FormItem"
+          x-component="TreeSelect" x-component-props={{ treeDefaultExpandAll: true }}/>
         <SchemaField.String
           name="buttonType" required title="按钮类型" x-decorator="FormItem" x-component="Select"
           enum={[

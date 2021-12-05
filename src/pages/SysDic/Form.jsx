@@ -20,12 +20,9 @@ export default (props) => {
         state.display = 'hidden'
       })*/
 
-  return <Form form={form} layout="horizontal">
+  return <Form form={form}>
     <SchemaField>
-      <SchemaField.Void
-        x-component="FormLayout"
-        x-component-props={{ labelCol: 6, wrapperCol: 16 }}
-      >
+      <SchemaField.Void x-component="FormLayout" x-component-props={{ labelCol: 6, wrapperCol: 16 }}>
         <SchemaField.Number name="id" x-decorator="FormItem" x-component="Input"/>
         <SchemaField.String name="flag" required title="大类名称" x-decorator="FormItem" x-component="Input"/>
         <SchemaField.String name="name" required title="小类名称" x-decorator="FormItem" x-component="Input"/>
