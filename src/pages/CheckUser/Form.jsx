@@ -66,7 +66,7 @@ export default (props) => {
       form.query('workStatus').take().initialValue = '在岗'
     }
     //
-    const data2 = await get(sysDeptPath.getTreeSelect)
+    const data2 = await get(sysDeptPath.getTreeSelect2)
     if (data2) {
       form.query('deptId').take().dataSource = data2
     }
@@ -119,14 +119,7 @@ export default (props) => {
         <SchemaField.String name="userType" required title="人员类型" x-decorator="FormItem" x-component="Input"/>
         <SchemaField.Number
           name="deptId" required title="所在部门" x-decorator="FormItem"
-          x-component="TreeSelect" x-component-props={{
-          treeDefaultExpandAll: true,
-          onSelect: (value, node, extra) => {
-            if (node.title === '海鹰安全公司') {
-              Modal.error({ content: '公司名称不能被选择', okText: '知道了' })
-            }
-          }
-        }}
+          x-component="TreeSelect" x-component-props={{ treeDefaultExpandAll: true }}
         />
         <SchemaField.String
           name="userRole" required title="人员角色" x-decorator="FormItem" x-component="Select"

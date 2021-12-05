@@ -41,6 +41,7 @@ export const sysDeptPath = {
   edit: contextPath + '/sysDept/edit',
   delete: contextPath + '/sysDept/delete',
   getTreeSelect: contextPath + '/sysDept/getTreeSelect',
+  getTreeSelect2: contextPath + '/sysDept/getTreeSelect2',
   getIdNameMap: contextPath + '/sysDept/getIdNameMap',
 }
 export const sysRolePath = {

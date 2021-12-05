@@ -16,7 +16,7 @@ export default (props) => {
       form.setValues(record)
     } else {
     }
-    const data = await get(sysDeptPath.getTreeSelect)
+    const data = await get(sysDeptPath.getTreeSelect2)
     if (data) {
       form.query('deptId').take().dataSource = data
     }
