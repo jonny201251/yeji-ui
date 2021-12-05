@@ -53,15 +53,15 @@ export default () => {
         <Menu.Item key="3-角色管理-sysRolePath">角色管理</Menu.Item>
         <Menu.Item key="4-菜单管理-sysPermissionPath">权限管理</Menu.Item>
         <Menu.Item key="5-用户管理-sysUserPath">用户管理</Menu.Item>
-        <Menu.Item key="6-考核启动和停止-checkStatusPath">考核启动和停止</Menu.Item>
-        <Menu.Item key="7-考核人员信息-checkUserPath">考核人员信息</Menu.Item>
-        <Menu.Item key="8-党支部与主管党委领导-sysUserPath">党支部与主管党委领导</Menu.Item>
-        <Menu.Item key="14-党支部与部门-sysUserPath">党支部与部门</Menu.Item>
-        <Menu.Item key="9-公司领导主管的部门-leadDeptPath">公司领导主管的部门</Menu.Item>
-        <Menu.Item key="10-被考核的人员角色-sysUserPath">被考核的人员角色</Menu.Item>
         <Menu.Item key="11-部门间的评分方向-sysUserPath">部门间的评分方向</Menu.Item>
+        <Menu.Item key="13-班组管理-deptGroupPath">班组管理</Menu.Item>
+        <Menu.Item key="14-党支部下的部门-partyDeptPath">党支部下的部门</Menu.Item>
+        <Menu.Item key="9-公司领导主管下的部门-leadDeptPath">公司领导主管下的部门</Menu.Item>
+        <Menu.Item key="10-被考核的人员角色-sysUserPath">被考核的人员角色</Menu.Item>
         <Menu.Item key="12-被考核的人员类型的考核项目-sysUserPath">被考核的人员类型的考核项目</Menu.Item>
-        <Menu.Item key="13-班组名称-deptGroupPath">班组名称</Menu.Item>
+        <Menu.Item key="7-人员信息管理-checkUserPath">人员信息管理</Menu.Item>
+        <Menu.Item key="8-主管党支部的公司领导-partyLeadPath">主管党支部的公司领导</Menu.Item>
+        <Menu.Item key="6-考核启动和停止-checkStatusPath">考核启动和停止</Menu.Item>
       </Menu.SubMenu>
     }
     return menuList && menuList.map(item => {
