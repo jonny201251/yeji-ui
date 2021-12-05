@@ -17,11 +17,9 @@ const SchemaField = createSchemaField({
 export default (props) => {
   let { form, record } = props
   useEffect(async () => {
-    form.query('id').take().display = 'hidden'
     if (record) {
       form.setValues(record)
     }
-
     const data = await get(checkUserPath.getLeadName)
     if (data) {
       form.query('userName').take().dataSource = data
@@ -30,9 +28,8 @@ export default (props) => {
   return <Form form={form}>
     <SchemaField>
       <SchemaField.Void x-component="FormLayout" x-component-props={{ labelCol: 6, wrapperCol: 16 }}>
-        <SchemaField.Number name="id" x-decorator="FormItem" x-component="Input"/>
         <SchemaField.String name="userName" required title="公司领导姓名" x-decorator="FormItem" x-component="Select"/>
-        <SchemaField.Array name="list" required title="主管部门" x-decorator="FormItem" x-component="ArrayItems">
+        <SchemaField.Array name="deptIdList" title="主管部门" x-decorator="FormItem" x-component="ArrayItems">
           <SchemaField.Void x-component="Space">
             <SchemaField.Number
               name="deptId" required x-decorator="FormItem" x-component="TreeSelect"
@@ -41,7 +38,7 @@ export default (props) => {
             />
             <SchemaField.Void x-decorator="FormItem" x-component="ArrayItems.Remove"/>
           </SchemaField.Void>
-          <SchemaField.Void x-component="ArrayItems.Addition" title="添加条目"/>
+          <SchemaField.Void x-component="ArrayItems.Addition" title="添加部门"/>
         </SchemaField.Array>
       </SchemaField.Void>
     </SchemaField>
