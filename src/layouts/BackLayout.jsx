@@ -53,14 +53,14 @@ export default () => {
         <Menu.Item key="3-角色管理-sysRolePath">角色管理</Menu.Item>
         <Menu.Item key="4-菜单管理-sysPermissionPath">权限管理</Menu.Item>
         <Menu.Item key="5-用户管理-sysUserPath">用户管理</Menu.Item>
-        <Menu.Item key="11-部门间的评分方向-sysUserPath">部门间的评分方向</Menu.Item>
+        <Menu.Item key="11-部门评分关系-deptScoreRelationPath">部门评分关系</Menu.Item>
         <Menu.Item key="13-班组管理-deptGroupPath">班组管理</Menu.Item>
-        <Menu.Item key="14-党支部下的部门-partyDeptPath">党支部下的部门</Menu.Item>
-        <Menu.Item key="9-公司领导主管下的部门-leadDeptPath">公司领导主管下的部门</Menu.Item>
-        <Menu.Item key="10-被考核的人员角色-sysUserPath">被考核的人员角色</Menu.Item>
-        <Menu.Item key="12-被考核的人员类型的考核项目-sysUserPath">被考核的人员类型的考核项目</Menu.Item>
+        <Menu.Item key="14-党支部管理-partyPath">党支部管理</Menu.Item>
+        <Menu.Item key="9-主管部门公司领导-chargeDeptLeaderPath">主管部门公司领导</Menu.Item>
+        <Menu.Item key="10-考核对象-chekkObjectPath">考核对象</Menu.Item>
+        <Menu.Item key="12-考核项目-chekkProjectPath">考核项目</Menu.Item>
         <Menu.Item key="7-人员信息管理-checkUserPath">人员信息管理</Menu.Item>
-        <Menu.Item key="8-主管党支部的公司领导-partyLeadPath">主管党支部的公司领导</Menu.Item>
+        <Menu.Item key="8-主管党支部党委领导-chargePartyLeaderPath">主管党支部党委领导</Menu.Item>
         <Menu.Item key="6-考核启动和停止-checkStatusPath">考核启动和停止</Menu.Item>
       </Menu.SubMenu>
     }

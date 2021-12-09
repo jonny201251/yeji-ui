@@ -15,16 +15,16 @@ import CheckUserForm from '../pages/CheckUser/Form'
 import CheckUserList from '../pages/CheckUser/List'
 import DeptGroupForm from '../pages/DeptGroup/Form'
 import DeptGroupList from '../pages/DeptGroup/List'
-import LeadDeptForm from '../pages/LeadDept/Form'
-import LeadDeptList from '../pages/LeadDept/List'
-import PartyLeadForm from '../pages/PartyLead/Form'
-import PartyLeadList from '../pages/PartyLead/List'
-import PartyDeptForm from '../pages/PartyDept/Form'
-import PartyDeptList from '../pages/PartyDept/List'
-//人员评分
-//部门评分
-//flag、导出名称、sysPermission.path,三个地方必须一致
+import DeptScoreRelationForm from '../pages/DeptScoreRelation/Form'
+import DeptScoreRelationList from '../pages/DeptScoreRelation/List'
+import PartyForm from '../pages/Party/Form'
+import PartyList from '../pages/Party/List'
+import ChargeDeptLeaderForm from '../pages/ChargeDeptLeader/Form'
+import ChargeDeptLeaderList from '../pages/ChargeDeptLeader/List'
+import ChargePartyLeaderForm from '../pages/ChargePartyLeader/Form'
+import ChargePartyLeaderList from '../pages/ChargePartyLeader/List'
 
+//flag、导出名称、sysPermission.path,三个地方必须一致
 //系统管理
 export const sysDicPath = {
   flag: 'sysDicPath',
@@ -98,31 +98,40 @@ export const deptGroupPath = {
   getLabelValue: contextPath + '/deptGroup/getLabelValue',
   getIdNameMap: contextPath + '/deptGroup/getIdNameMap'
 }
-export const leadDeptPath = {
-  flag: 'leadDeptPath',
-  Form: LeadDeptForm, List: LeadDeptList,
-  list: contextPath + '/leadDept/list',
-  get: contextPath + '/leadDept/get',
-  add: contextPath + '/leadDept/add',
-  edit: contextPath + '/leadDept/edit',
-  delete: contextPath + '/leadDept/delete'
+export const deptScoreRelationPath = {
+  flag: 'deptScoreRelationPath',
+  Form: DeptScoreRelationForm, List: DeptScoreRelationList,
+  list: contextPath + '/deptScoreRelation/list',
+  get: contextPath + '/deptScoreRelation/get',
+  add: contextPath + '/deptScoreRelation/add',
+  edit: contextPath + '/deptScoreRelation/edit',
+  delete: contextPath + '/deptScoreRelation/delete'
 }
-export const partyLeadPath = {
-  flag: 'partyLeadPath',
-  Form: PartyLeadForm, List: PartyLeadList,
-  list: contextPath + '/partyLead/list',
-  get: contextPath + '/partyLead/get',
-  add: contextPath + '/partyLead/add',
-  edit: contextPath + '/partyLead/edit',
-  delete: contextPath + '/partyLead/delete'
+export const partyPath = {
+  flag: 'partyPath',
+  Form: PartyForm, List: PartyList,
+  list: contextPath + '/party/list',
+  get: contextPath + '/party/get',
+  add: contextPath + '/party/add',
+  edit: contextPath + '/party/edit',
+  delete: contextPath + '/party/delete',
+  getLabelValue: contextPath + '/party/getLabelValue'
 }
-export const partyDeptPath = {
-  flag: 'partyDeptPath',
-  Form: PartyDeptForm, List: PartyDeptList,
-  list: contextPath + '/partyDept/list',
-  get: contextPath + '/partyDept/get',
-  add: contextPath + '/partyDept/add',
-  edit: contextPath + '/partyDept/edit',
-  delete: contextPath + '/partyDept/delete',
-  getLabelValue: contextPath + '/partyDept/getLabelValue'
+export const chargeDeptLeaderPath = {
+  flag: 'chargeDeptLeaderPath',
+  Form: ChargeDeptLeaderForm, List: ChargeDeptLeaderList,
+  list: contextPath + '/chargeDeptLeader/list',
+  get: contextPath + '/chargeDeptLeader/get',
+  add: contextPath + '/chargeDeptLeader/add',
+  edit: contextPath + '/chargeDeptLeader/edit',
+  delete: contextPath + '/chargeDeptLeader/delete'
+}
+export const chargePartyLeaderPath = {
+  flag: 'chargePartyLeaderPath',
+  Form: ChargePartyLeaderForm, List: ChargePartyLeaderList,
+  list: contextPath + '/chargePartyLeader/list',
+  get: contextPath + '/chargePartyLeader/get',
+  add: contextPath + '/chargePartyLeader/add',
+  edit: contextPath + '/chargePartyLeader/edit',
+  delete: contextPath + '/chargePartyLeader/delete'
 }

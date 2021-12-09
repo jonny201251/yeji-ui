@@ -4,11 +4,13 @@ import { FormButtonGroup, FormDialog } from '@formily/antd'
 import { LoadingButton } from './index'
 
 export default (props) => {
-  const { record, path, actionRef, width = 520 } = props
+  const { record, path, actionRef, width = 520, rowKey } = props
 
   const onClick = async (type) => {
     if (type === 'edit') {
-      const dbRecord = await get(path.get, { id: record.id })
+      let params = {}
+      params[rowKey || 'id'] = record[rowKey || 'id']
+      const dbRecord = await get(path.get, params)
       if (dbRecord) {
         let dialog = FormDialog({ title: '编辑', footer: null, keyboard: false, maskClosable: false, width }, (form) => {
           return (
@@ -38,7 +40,9 @@ export default (props) => {
         dialog.open()
       }
     } else if (type === 'preview') {
-      const dbRecord = await get(path.get, { id: record.id })
+      let params = {}
+      params[rowKey || 'id'] = record[rowKey || 'id']
+      const dbRecord = await get(path.get, params)
       if (dbRecord) {
         let dialog = FormDialog({ title: '浏览', footer: null, keyboard: false, maskClosable: false, width }, (form) => {
           return (

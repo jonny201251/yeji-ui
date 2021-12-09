@@ -4,7 +4,7 @@ import { OperateButton, ToolBarButton } from './index'
 import { proTableRequest } from '../utils'
 
 export default (props) => {
-  const { columns, path, width, rowKey } = props
+  const { columns, path, width, rowKey='id' } = props
 
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const actionRef = useRef()
@@ -13,13 +13,13 @@ export default (props) => {
   newColumns.push(
     {
       title: '操作', valueType: 'option', fixed: 'right',
-      render: (text, record, _, action) => [<OperateButton record={record} path={path} actionRef={actionRef}/>]
+      render: (text, record, _, action) => [<OperateButton record={record} path={path} actionRef={actionRef} width={width} rowKey={rowKey}/>]
     }
   )
 
   return <ProTable
     bordered
-    rowKey={rowKey || 'id'}
+    rowKey={rowKey}
     actionRef={actionRef}
     columns={newColumns}
     columnEmptyText={true}
@@ -35,7 +35,7 @@ export default (props) => {
     //
     options={{ fullScreen: false, density: false }}
     headerTitle={
-      <ToolBarButton path={path} actionRef={actionRef} selectedRowKeys={selectedRowKeys} width={width}/>
+      <ToolBarButton path={path} actionRef={actionRef} selectedRowKeys={selectedRowKeys} width={width} rowKey={rowKey}/>
     }
   />
 }
