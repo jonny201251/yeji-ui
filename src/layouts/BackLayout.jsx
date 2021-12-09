@@ -52,15 +52,14 @@ export default () => {
         <Menu.Item key="2-部门管理-sysDeptPath">部门管理</Menu.Item>
         <Menu.Item key="3-角色管理-sysRolePath">角色管理</Menu.Item>
         <Menu.Item key="4-菜单管理-sysPermissionPath">权限管理</Menu.Item>
-        <Menu.Item key="5-用户管理-sysUserPath">用户管理</Menu.Item>
         <Menu.Item key="11-部门评分关系-deptScoreRelationPath">部门评分关系</Menu.Item>
         <Menu.Item key="13-班组管理-deptGroupPath">班组管理</Menu.Item>
         <Menu.Item key="14-党支部管理-partyPath">党支部管理</Menu.Item>
+        <Menu.Item key="8-主管党支部党委领导-chargePartyLeaderPath">主管党支部党委领导</Menu.Item>
         <Menu.Item key="9-主管部门公司领导-chargeDeptLeaderPath">主管部门公司领导</Menu.Item>
         <Menu.Item key="10-考核对象-chekkObjectPath">考核对象</Menu.Item>
         <Menu.Item key="12-考核项目-chekkProjectPath">考核项目</Menu.Item>
-        <Menu.Item key="7-人员信息管理-checkUserPath">人员信息管理</Menu.Item>
-        <Menu.Item key="8-主管党支部党委领导-chargePartyLeaderPath">主管党支部党委领导</Menu.Item>
+        <Menu.Item key="7-人员信息管理-checkUserPath">人员管理</Menu.Item>
         <Menu.Item key="6-考核启动和停止-checkStatusPath">考核启动和停止</Menu.Item>
       </Menu.SubMenu>
     }
@@ -174,7 +173,7 @@ export default () => {
       </div>
     </Header>
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed} style={{ background: '#fff' }} width={300}>
+      <Sider trigger={null} collapsible collapsed={collapsed} style={{ background: '#fff' }} width={200}>
         <Menu theme="light" mode="inline" selectedKeys={[activeKey]} openKeys={openKeys}
               onOpenChange={(openkeys) => setOpenKeys(openkeys)}>
           {renderMenu(utils.session.getItem('menuList'))}
