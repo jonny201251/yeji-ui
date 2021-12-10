@@ -59,7 +59,8 @@ export default () => {
         <Menu.Item key="9-主管部门公司领导-chargeDeptLeaderPath">主管部门公司领导</Menu.Item>
         <Menu.Item key="10-考核对象-checkkObjectPath">考核对象</Menu.Item>
         <Menu.Item key="12-考核项目-checkkProjectPath">考核项目</Menu.Item>
-        <Menu.Item key="7-人员信息管理-checkUserPath">人员管理</Menu.Item>
+        <Menu.Item key="7-人员管理-checkUserPath">人员管理</Menu.Item>
+        <Menu.Item key="71-党委书记-partySecretaryPath">党委书记</Menu.Item>
         <Menu.Item key="6-考核启动和停止-checkStatusPath">考核启动和停止</Menu.Item>
       </Menu.SubMenu>
     }

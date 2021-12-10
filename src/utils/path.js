@@ -27,6 +27,8 @@ import CheckkObjectForm from '../pages/CheckkObject/Form'
 import CheckkObjectList from '../pages/CheckkObject/List'
 import CheckkProjectForm from '../pages/CheckkProject/Form'
 import CheckkProjectList from '../pages/CheckkProject/List'
+import PartySecretaryForm from '../pages/PartySecretary/Form'
+import PartySecretaryList from '../pages/PartySecretary/List'
 
 //flag、导出名称、sysPermission.path,三个地方必须一致
 //系统管理
@@ -156,4 +158,13 @@ export const checkkProjectPath = {
   add: contextPath + '/checkkProject/add',
   edit: contextPath + '/checkkProject/edit',
   delete: contextPath + '/checkkProject/delete'
+}
+export const partySecretaryPath = {
+  flag: 'partySecretaryPath',
+  Form: PartySecretaryForm, List: PartySecretaryList,
+  list: contextPath + '/partySecretary/list',
+  get: contextPath + '/partySecretary/get',
+  add: contextPath + '/partySecretary/add',
+  edit: contextPath + '/partySecretary/edit',
+  delete: contextPath + '/partySecretary/delete'
 }
