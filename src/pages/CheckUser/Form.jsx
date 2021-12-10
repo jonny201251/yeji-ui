@@ -56,7 +56,6 @@ export default (props) => {
 
   useEffect(async () => {
     form.query('id').take().display = 'hidden'
-    form.query('userType').take().pattern = 'disabled'
     form.query('groupId').take().display = 'none'
     form.query('partyName').take().display = 'none'
     form.query('partyRole').take().display = 'none'
@@ -113,7 +112,6 @@ export default (props) => {
             { label: '离职', value: '离职' }
           ]}
         />
-        <SchemaField.String name="userType" required title="人员类型" x-decorator="FormItem" x-component="Input"/>
         <SchemaField.Number
           name="deptId" required title="所在部门" x-decorator="FormItem"
           x-component="TreeSelect" x-component-props={{ treeDefaultExpandAll: true }}
@@ -122,6 +120,7 @@ export default (props) => {
           name="userRole" required title="人员角色" x-decorator="FormItem" x-component="Select"
           x-reactions="{{userRoleScope}}"
         />
+        <SchemaField.String name="userType" required title="人员类型" x-decorator="FormItem" x-component="Input"/>
         <SchemaField.String name="groupId" required title="班组名称" x-decorator="FormItem" x-component="Select"/>
         <SchemaField.Number name="sort" title="人员排序" x-decorator="FormItem" x-component="NumberPicker"/>
         <SchemaField.String name="remark" title="备注" x-decorator="FormItem" x-component="Input.TextArea"/>

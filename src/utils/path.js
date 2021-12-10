@@ -23,6 +23,10 @@ import ChargeDeptLeaderForm from '../pages/ChargeDeptLeader/Form'
 import ChargeDeptLeaderList from '../pages/ChargeDeptLeader/List'
 import ChargePartyLeaderForm from '../pages/ChargePartyLeader/Form'
 import ChargePartyLeaderList from '../pages/ChargePartyLeader/List'
+import CheckkObjectForm from '../pages/CheckkObject/Form'
+import CheckkObjectList from '../pages/CheckkObject/List'
+import CheckkProjectForm from '../pages/CheckkProject/Form'
+import CheckkProjectList from '../pages/CheckkProject/List'
 
 //flag、导出名称、sysPermission.path,三个地方必须一致
 //系统管理
@@ -134,4 +138,22 @@ export const chargePartyLeaderPath = {
   add: contextPath + '/chargePartyLeader/add',
   edit: contextPath + '/chargePartyLeader/edit',
   delete: contextPath + '/chargePartyLeader/delete'
+}
+export const checkkObjectPath = {
+  flag: 'checkkObjectPath',
+  Form: CheckkObjectForm, List: CheckkObjectList,
+  list: contextPath + '/checkkObject/list',
+  get: contextPath + '/checkkObject/get',
+  add: contextPath + '/checkkObject/add',
+  edit: contextPath + '/checkkObject/edit',
+  delete: contextPath + '/checkkObject/delete'
+}
+export const checkkProjectPath = {
+  flag: 'checkkProjectPath',
+  Form: CheckkProjectForm, List: CheckkProjectList,
+  list: contextPath + '/checkkProject/list',
+  get: contextPath + '/checkkProject/get',
+  add: contextPath + '/checkkProject/add',
+  edit: contextPath + '/checkkProject/edit',
+  delete: contextPath + '/checkkProject/delete'
 }
