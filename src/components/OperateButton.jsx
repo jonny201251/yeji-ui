@@ -13,6 +13,7 @@ export default (props) => {
       const dbRecord = await get(path.get, params)
       if (dbRecord) {
         let dialog = FormDialog({ title: '编辑', footer: null, keyboard: false, maskClosable: false, width }, (form) => {
+          form.setValues(dbRecord)
           return (
             <>
               <path.Form form={form} type={type} record={dbRecord} dialog={dialog}/>
@@ -45,6 +46,7 @@ export default (props) => {
       const dbRecord = await get(path.get, params)
       if (dbRecord) {
         let dialog = FormDialog({ title: '浏览', footer: null, keyboard: false, maskClosable: false, width }, (form) => {
+          form.setValues(dbRecord)
           return (
             <>
               <path.Form form={form} type={type} record={dbRecord} dialog={dialog}/>

@@ -10,12 +10,7 @@ export default (props) => {
   const [arr, setArr] = useState([])
 
   const SchemaField = createSchemaField({
-    components: { FormLayout, FormItem, Input, Select, ArrayItems, ArrayTable },
-    scope: {
-      async checkProjectScope(field) {
-        field.dataSource = arr
-      }
-    }
+    components: { FormLayout, FormItem, Input, Select, ArrayItems, ArrayTable }
   })
 
   useEffect(async () => {
@@ -24,11 +19,7 @@ export default (props) => {
 
     const data2 = await get(sysDicPath.getLabelValue, { flag: '被考核类别' })
     if (data2) {
-      console.log(data2)
       form.query('checkkType').take().dataSource = data2
-    }
-    if (record) {
-      form.setValues(record)
     }
   }, [])
   return <ConfigProvider locale={zhCN}>
@@ -46,7 +37,7 @@ export default (props) => {
                   name="checkProject" required x-decorator="FormItem"
                   x-component="Select"
                   x-component-props={{ style: { width: 250 } }}
-                  x-reactions="{{checkProjectScope}}"
+                  enum={arr}
                 />
               </SchemaField.Void>
               <SchemaField.Void x-component="ArrayTable.Column" x-component-props={{ title: '权重' }}>
