@@ -42,6 +42,7 @@ export default (props) => {
         return
       }
       Modal.confirm({
+        okText: '确认', cancelText: '取消',
         icon: <QuestionCircleOutlined/>,
         content: <p style={{ fontSize: 16 }}>确定要删除{selectedRowKeys.length}条数据?</p>,
         onOk: async (close) => {

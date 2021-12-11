@@ -10,25 +10,18 @@ export default (props) => {
   const [arr, setArr] = useState([])
 
   const SchemaField = createSchemaField({
-    components: { FormLayout, FormItem, Input, Select, ArrayItems, ArrayTable },
-    scope: {
-      async checkUserTypeScope(field) {
-        field.dataSource = arr
-      }
-    }
+    components: { FormLayout, FormItem, Input, Select, ArrayItems, ArrayTable }
   })
 
   useEffect(async () => {
+    form.query('oldCheckkObject').take().display = 'hidden'
+
     const data1 = await get(sysDicPath.getLabelValue, { flag: '考核人员类型' })
     data1 && setArr(data1)
 
     const data2 = await get(sysDicPath.getLabelValue, { flag: '被考核对象' })
     if (data2) {
-      console.log(data2)
       form.query('checkkObject').take().dataSource = data2
-    }
-    if (record) {
-      form.setValues(record)
     }
   }, [])
   return <ConfigProvider locale={zhCN}>
@@ -36,6 +29,7 @@ export default (props) => {
       <SchemaField>
         <SchemaField.Void x-component="FormLayout" x-component-props={{ labelCol: 8, wrapperCol: 12 }}>
           <SchemaField.String name="checkkObject" required title="被考核对象" x-decorator="FormItem" x-component="Select"/>
+          <SchemaField.String name="oldCheckkObject" required x-decorator="FormItem" x-component="Input"/>
           <SchemaField.Array name="checkList" x-decorator="FormItem" x-component="ArrayTable">
             <SchemaField.Object>
               <SchemaField.Void x-component="ArrayTable.Column">
@@ -46,12 +40,14 @@ export default (props) => {
                   name="checkUserType" required x-decorator="FormItem"
                   x-component="Select"
                   x-component-props={{ style: { width: 250 } }}
-                  x-reactions="{{checkUserTypeScope}}"
+                  enum={arr}
                 />
               </SchemaField.Void>
               <SchemaField.Void x-component="ArrayTable.Column" x-component-props={{ title: '权重' }}>
-                <SchemaField.Number x-decorator="FormItem" name="weight" required x-component="Input"
-                                    x-component-props={{ suffix: '%' }}/>
+                <SchemaField.Number
+                  x-decorator="FormItem" name="weight" required
+                  x-component="Input" x-component-props={{ suffix: '%' }}
+                />
               </SchemaField.Void>
               <SchemaField.Void x-component="ArrayTable.Column">
                 <SchemaField.Void x-component="ArrayTable.Remove"/>

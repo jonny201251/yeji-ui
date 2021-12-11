@@ -7,8 +7,8 @@ export default () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const actionRef = useRef()
   const columns = [
-    { title: '大类名称', dataIndex: 'flag', valueType: 'text' },
-    { title: '小类名称', dataIndex: 'name', valueType: 'text' },
+    { title: '类别', dataIndex: 'flag', valueType: 'text' },
+    { title: '名称', dataIndex: 'name', valueType: 'text' },
     {
       title: '操作', valueType: 'option', fixed: 'right',
       render: (text, record, _, action) => [<OperateButton record={record} path={sysDicPath} actionRef={actionRef}/>]

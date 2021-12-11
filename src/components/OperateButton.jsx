@@ -1,15 +1,18 @@
-import { Button, message, Space } from 'antd'
-import { env, post, get } from '../utils'
+import { Button, message, Modal, Space } from 'antd'
+import { env, get, post } from '../utils'
 import { FormButtonGroup, FormDialog } from '@formily/antd'
 import { LoadingButton } from './index'
+import { QuestionCircleOutlined } from '@ant-design/icons'
+import React from 'react'
 
 export default (props) => {
   const { record, path, actionRef, width = 520, rowKey } = props
 
   const onClick = async (type) => {
+    let params = {}
+    params[rowKey || 'id'] = record[rowKey || 'id']
+
     if (type === 'edit') {
-      let params = {}
-      params[rowKey || 'id'] = record[rowKey || 'id']
       const dbRecord = await get(path.get, params)
       if (dbRecord) {
         let dialog = FormDialog({ title: '编辑', footer: null, keyboard: false, maskClosable: false, width }, (form) => {
@@ -41,8 +44,6 @@ export default (props) => {
         dialog.open()
       }
     } else if (type === 'preview') {
-      let params = {}
-      params[rowKey || 'id'] = record[rowKey || 'id']
       const dbRecord = await get(path.get, params)
       if (dbRecord) {
         let dialog = FormDialog({ title: '浏览', footer: null, keyboard: false, maskClosable: false, width }, (form) => {
@@ -55,12 +56,30 @@ export default (props) => {
         })
         dialog.open({ pattern: 'disabled' })
       }
+    } else if (type === 'copy') {
+      Modal.confirm({
+        okText: '确认', cancelText: '取消',
+        icon: <QuestionCircleOutlined/>,
+        content: <p style={{ fontSize: 16 }}>确定要复制该条数据?</p>,
+        onOk: async (close) => {
+          const data = await get(path.copy, params)
+          if (data) {
+            actionRef.current.clearSelected()
+            actionRef.current.reload()
+            close()
+            message.success('复制成功')
+          }
+        }
+      })
     }
   }
 
   const renderButton = () => {
     if (env === 'dev') {
       return <Space size={'middle'}>
+        <a onClick={() => {
+          onClick('copy')
+        }}>复制</a>
         <a onClick={() => {
           onClick('edit')
         }}>编辑</a>

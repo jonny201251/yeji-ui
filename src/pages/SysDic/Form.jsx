@@ -26,6 +26,7 @@ export default (props) => {
         <SchemaField.Number name="id" x-decorator="FormItem" x-component="Input"/>
         <SchemaField.String name="flag" required title="大类名称" x-decorator="FormItem" x-component="Input"/>
         <SchemaField.String name="name" required title="小类名称" x-decorator="FormItem" x-component="Input"/>
+        <SchemaField.Number name="sort" x-decorator="FormItem" title="排序" x-component="Input"/>
         <SchemaField.String
           name="remark" title="备注" x-decorator="FormItem"
           x-component="Input.TextArea"

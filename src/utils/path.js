@@ -148,7 +148,8 @@ export const checkkObjectPath = {
   get: contextPath + '/checkkObject/get',
   add: contextPath + '/checkkObject/add',
   edit: contextPath + '/checkkObject/edit',
-  delete: contextPath + '/checkkObject/delete'
+  delete: contextPath + '/checkkObject/delete',
+  copy: contextPath + '/checkkObject/copy'
 }
 export const checkkProjectPath = {
   flag: 'checkkProjectPath',
@@ -157,7 +158,8 @@ export const checkkProjectPath = {
   get: contextPath + '/checkkProject/get',
   add: contextPath + '/checkkProject/add',
   edit: contextPath + '/checkkProject/edit',
-  delete: contextPath + '/checkkProject/delete'
+  delete: contextPath + '/checkkProject/delete',
+  copy: contextPath + '/checkkProject/copy'
 }
 export const partySecretaryPath = {
   flag: 'partySecretaryPath',
