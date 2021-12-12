@@ -3,7 +3,7 @@ import { chargeDeptLeaderPath } from '../../utils'
 
 export default () => {
   let columns = [
-    { title: '公司领导', dataIndex: 'userName', valueType: 'text' }
+    { title: '主管部门领导', dataIndex: 'userName', valueType: 'text' }
   ]
 
 

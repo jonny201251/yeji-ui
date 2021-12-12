@@ -24,8 +24,8 @@ export default (props) => {
     <SchemaField>
       <SchemaField.Void x-component="FormLayout" x-component-props={{ labelCol: 6, wrapperCol: 16 }}>
         <SchemaField.Number name="id" x-decorator="FormItem" x-component="Input"/>
-        <SchemaField.String name="flag" required title="大类名称" x-decorator="FormItem" x-component="Input"/>
-        <SchemaField.String name="name" required title="小类名称" x-decorator="FormItem" x-component="Input"/>
+        <SchemaField.String name="flag" required title="类别" x-decorator="FormItem" x-component="Input"/>
+        <SchemaField.String name="name" required title="名称" x-decorator="FormItem" x-component="Input"/>
         <SchemaField.Number name="sort" x-decorator="FormItem" title="排序" x-component="Input"/>
         <SchemaField.String
           name="remark" title="备注" x-decorator="FormItem"

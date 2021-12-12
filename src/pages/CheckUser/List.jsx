@@ -17,7 +17,8 @@ export default () => {
           title: '所在部门', dataIndex: 'deptId', valueType: 'text',
           render: (text, record) => idNameMap1[record.deptId]
         },
-        { title: '角色', dataIndex: 'userRole', valueType: 'text' },
+        { title: '人员角色', dataIndex: 'userRole', valueType: 'text' },
+        { title: '人员类型', dataIndex: 'userType', valueType: 'text' },
         { title: '是否党员', dataIndex: 'havePartyMember', valueType: 'text' },
         { title: '党支部名称', dataIndex: 'partyName', valueType: 'text' },
         { title: '党支部角色', dataIndex: 'partyRole', valueType: 'text' },

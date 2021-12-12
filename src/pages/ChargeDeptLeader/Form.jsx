@@ -31,7 +31,7 @@ export default (props) => {
     if (data) {
       setTreeDept(data)
     }
-    const data2 = await get(checkUserPath.getLeadName)
+    const data2 = await get(checkUserPath.getChargeDeptLeader)
     if (data2) {
       form.query('userName').take().dataSource = data2
     }
@@ -43,7 +43,7 @@ export default (props) => {
     <SchemaField>
       <SchemaField.Void x-component="FormLayout" x-component-props={{ labelCol: 4, wrapperCol: 20 }}>
         <SchemaField.String
-          name="userName" required title="公司领导" x-decorator="FormItem" x-component="Select"
+          name="userName" required title="主管部门领导" x-decorator="FormItem" x-component="Select"
           x-component-props={{ style: { width: 315 } }}
         />
         <SchemaField.String name="deptIdList" required title="选择部门" x-decorator="FormItem" x-component="MyCheckBox"/>
