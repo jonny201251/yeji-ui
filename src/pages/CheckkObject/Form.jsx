@@ -17,6 +17,7 @@ export default (props) => {
     form.query('oldCheckkObject').take().display = 'hidden'
 
     const data1 = await get(sysDicPath.getLabelValue, { flag: '考核人员类型' })
+
     data1 && setArr(data1)
 
     const data2 = await get(sysDicPath.getLabelValue, { flag: '被考核对象' })
