@@ -55,7 +55,6 @@ export default () => {
         <Menu.Item key="11-部门评分关系-deptScoreRelationPath">部门评分关系</Menu.Item>
         <Menu.Item key="13-班组管理-deptGroupPath">班组管理</Menu.Item>
         <Menu.Item key="14-党支部管理-partyPath">党支部管理</Menu.Item>
-        <Menu.Item key="8-主管党支部党委领导-chargePartyLeaderPath">主管党支部党委领导</Menu.Item>
         <Menu.Item key="9-主管部门领导-chargeDeptLeaderPath">主管部门领导</Menu.Item>
         <Menu.Item key="10-考核对象-checkkObjectPath">考核对象</Menu.Item>
         <Menu.Item key="12-考核项目-checkkProjectPath">考核项目</Menu.Item>

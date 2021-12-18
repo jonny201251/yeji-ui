@@ -21,8 +21,6 @@ import PartyForm from '../pages/Party/Form'
 import PartyList from '../pages/Party/List'
 import ChargeDeptLeaderForm from '../pages/ChargeDeptLeader/Form'
 import ChargeDeptLeaderList from '../pages/ChargeDeptLeader/List'
-import ChargePartyLeaderForm from '../pages/ChargePartyLeader/Form'
-import ChargePartyLeaderList from '../pages/ChargePartyLeader/List'
 import CheckkObjectForm from '../pages/CheckkObject/Form'
 import CheckkObjectList from '../pages/CheckkObject/List'
 import CheckkProjectForm from '../pages/CheckkProject/Form'
@@ -131,15 +129,6 @@ export const chargeDeptLeaderPath = {
   add: contextPath + '/chargeDeptLeader/add',
   edit: contextPath + '/chargeDeptLeader/edit',
   delete: contextPath + '/chargeDeptLeader/delete'
-}
-export const chargePartyLeaderPath = {
-  flag: 'chargePartyLeaderPath',
-  Form: ChargePartyLeaderForm, List: ChargePartyLeaderList,
-  list: contextPath + '/chargePartyLeader/list',
-  get: contextPath + '/chargePartyLeader/get',
-  add: contextPath + '/chargePartyLeader/add',
-  edit: contextPath + '/chargePartyLeader/edit',
-  delete: contextPath + '/chargePartyLeader/delete'
 }
 export const checkkObjectPath = {
   flag: 'checkkObjectPath',

@@ -7,5 +7,5 @@ export default () => {
   ]
 
 
-  return <BaseProTable path={chargeDeptLeaderPath} columns={columns} width={800} rowKey={'userName'}/>
+  return <BaseProTable path={chargeDeptLeaderPath} columns={columns} width={820} rowKey={'userName'}/>
 }

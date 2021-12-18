@@ -1,4 +1,4 @@
-import { Form, FormItem, FormLayout, Input } from '@formily/antd'
+import { Form, FormItem, FormLayout, Input,NumberPicker } from '@formily/antd'
 import { createSchemaField } from '@formily/react'
 import React, { useEffect, useState } from 'react'
 import { get, sysDeptPath } from '../../utils'
@@ -23,7 +23,7 @@ export default (props) => {
   }
 
   const SchemaField = createSchemaField({
-    components: { FormLayout, FormItem, Input, MyCheckBox }
+    components: { FormLayout, FormItem, Input, MyCheckBox,NumberPicker }
   })
 
   useEffect(async () => {
@@ -43,6 +43,10 @@ export default (props) => {
           x-component-props={{ style: { width: 315 } }}
         />
         <SchemaField.String name="deptIdList" required title="选择部门" x-decorator="FormItem" x-component="MyCheckBox"/>
+        <SchemaField.Number
+          name="sort" x-decorator="FormItem" title="排序" x-component="NumberPicker"
+          x-component-props={{ style: { width: 315 } }}
+        />
       </SchemaField.Void>
     </SchemaField>
   </Form>
