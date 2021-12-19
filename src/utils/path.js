@@ -97,6 +97,8 @@ export const checkUserPath = {
   edit: contextPath + '/checkUser/edit',
   delete: contextPath + '/checkUser/delete',
   getChargeDeptLeader: contextPath + '/checkUser/getChargeDeptLeader',
+  changePassword: contextPath + '/checkUser/changePassword',
+  initPassword: contextPath + '/checkUser/initPassword',
 };
 export const deptGroupPath = {
   flag: 'deptGroupPath',
