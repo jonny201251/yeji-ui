@@ -51,6 +51,7 @@ export default () => {
           title="基础信息设置"
           onClick={onClick}
         >
+          <Menu.Item key="61-评分人员关系-scorePath">评分人员关系</Menu.Item>
           <Menu.Item key="1-数据字典-sysDicPath">数据字典</Menu.Item>
           <Menu.Item key="2-部门管理-sysDeptPath">部门管理</Menu.Item>
           <Menu.Item key="3-角色管理-sysRolePath">角色管理</Menu.Item>

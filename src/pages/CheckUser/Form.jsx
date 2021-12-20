@@ -206,6 +206,7 @@ export default (props) => {
             enum={[
               { label: '在岗', value: '在岗' },
               { label: '离职', value: '离职' },
+              { label: '退休', value: '退休' },
             ]}
           />
           <SchemaField.Number

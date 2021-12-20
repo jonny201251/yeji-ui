@@ -27,6 +27,8 @@ import CheckkProjectForm from '../pages/CheckkProject/Form';
 import CheckkProjectList from '../pages/CheckkProject/List';
 import PartySecretaryForm from '../pages/PartySecretary/Form';
 import PartySecretaryList from '../pages/PartySecretary/List';
+import ScoreForm from '../pages/Score/Form';
+import ScoreList from '../pages/Score/List';
 
 //flag、导出名称、sysPermission.path,三个地方必须一致
 //系统管理
@@ -174,4 +176,14 @@ export const partySecretaryPath = {
   add: contextPath + '/partySecretary/add',
   edit: contextPath + '/partySecretary/edit',
   delete: contextPath + '/partySecretary/delete',
+};
+export const scorePath = {
+  flag: 'scorePath',
+  Form: ScoreForm,
+  List: ScoreList,
+  list: contextPath + '/score/list',
+  get: contextPath + '/score/get',
+  add: contextPath + '/score/add',
+  edit: contextPath + '/score/edit',
+  delete: contextPath + '/score/delete',
 };
