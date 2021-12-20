@@ -3,7 +3,7 @@ import {
   FormDialog,
   FormItem,
   FormLayout,
-  Input,
+  Password,
 } from '@formily/antd';
 import { createSchemaField } from '@formily/react';
 import { Button, message, Modal } from 'antd';
@@ -11,7 +11,7 @@ import { LoadingButton } from '../components';
 import { checkUserPath, get } from '../utils';
 
 const SchemaField = createSchemaField({
-  components: { FormLayout, FormItem, Input },
+  components: { FormLayout, FormItem, Password },
 });
 
 export default () => {
@@ -38,14 +38,14 @@ export default () => {
                       required
                       title="重设密码"
                       x-decorator="FormItem"
-                      x-component="Input"
+                      x-component="Password"
                     />
                     <SchemaField.String
                       name="password2"
                       required
                       title="确认密码"
                       x-decorator="FormItem"
-                      x-component="Input"
+                      x-component="Password"
                     />
                   </SchemaField.Void>
                 </SchemaField>

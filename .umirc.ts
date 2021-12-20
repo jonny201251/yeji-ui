@@ -8,6 +8,7 @@ export default defineConfig({
     { path: '/', component: '@/pages/index' },
     { path: '/test', component: '@/pages/test' },
     { path: '/index2', component: '@/pages/index2' },
+    { path: '/login', component: '@/pages/Login' },
     { path: '/back', component: '@/layouts/BackLayout' },
   ],
   fastRefresh: {},

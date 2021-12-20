@@ -14,7 +14,7 @@ import './backLayout.less';
 import './global.less';
 
 import _ from 'lodash';
-import { useModel } from 'umi';
+import { useModel, history } from 'umi';
 import * as utils from '../utils';
 import ChangePassword from './ChangePassword';
 
