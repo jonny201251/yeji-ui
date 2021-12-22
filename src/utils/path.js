@@ -186,4 +186,5 @@ export const scorePath = {
   add: contextPath + '/score/add',
   edit: contextPath + '/score/edit',
   delete: contextPath + '/score/delete',
+  getScoreList: contextPath + '/score/getScoreList',
 };

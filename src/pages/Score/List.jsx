@@ -14,7 +14,7 @@ export default () => {
 
   useEffect(async () => {
     const deptArr = await get(sysDeptPath.getLabelValue);
-    const roleArr = await get(sysDicPath.getLabelValue, { flag: '人员角色' });
+    // const roleArr = await get(sysDicPath.getLabelValue, { flag: '人员角色' })
     const checkkObjectArr = await get(sysDicPath.getLabelValue, {
       flag: '被考核对象',
     });
@@ -22,11 +22,11 @@ export default () => {
       flag: '考核人员类型',
     });
     const partyArr = await get(partyPath.getLabelValue);
-    if (deptArr && roleArr && checkkObjectArr && typeArr && partyArr) {
+    if (deptArr && checkkObjectArr && typeArr && partyArr) {
       let deptEnum = {};
       deptArr.forEach((item) => (deptEnum[item.value] = item.label));
-      let roleEnum = {};
-      roleArr.forEach((item) => (roleEnum[item.label] = item.label));
+      /*      let roleEnum = {}
+            roleArr.forEach((item) => (roleEnum[item.label] = item.label))*/
       let checkkObjectEnum = {};
       checkkObjectArr.forEach(
         (item) => (checkkObjectEnum[item.label] = item.label),
@@ -61,7 +61,15 @@ export default () => {
           title: '评分类别',
           dataIndex: 'scoreType',
           valueType: 'select',
-          valueEnum: { 部门: { text: '部门' }, 党支部: { text: '党支部' } },
+          valueEnum: {
+            行政评分: { text: '行政评分' },
+            党务评分: { text: '党务评分' },
+          },
+        },
+        {
+          title: '党支部名称',
+          dataIndex: 'partyName',
+          valueType: 'text',
         },
         {
           title: '评分人部门',
@@ -82,12 +90,12 @@ export default () => {
           valueType: 'select',
           valueEnum: typeEnum,
         },
-        {
-          title: '评分人角色',
-          dataIndex: 'userRole',
-          valueType: 'text',
-          valueEnum: roleEnum,
-        },
+        /*        {
+                  title: '评分人角色',
+                  dataIndex: 'userRole',
+                  valueType: 'text',
+                  valueEnum: roleEnum
+                },*/
         { title: '评分人姓名', dataIndex: 'userName', valueType: 'text' },
         {
           title: '评分状态',
@@ -108,6 +116,7 @@ export default () => {
         columns={columns}
         search={{ span: 6 }}
         options={true}
+        width={'98%'}
       />
     )
   );
