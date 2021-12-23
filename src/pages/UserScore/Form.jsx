@@ -12,18 +12,15 @@ import {
   Submit,
 } from '@formily/antd';
 import { createSchemaField, Field } from '@formily/react';
-import React, { useEffect, useState } from 'react';
-import { Button, ConfigProvider } from 'antd';
+import React, { useEffect } from 'react';
+import { Button, ConfigProvider, message } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
-import { get, scorePath } from '../../utils';
 import { createForm } from '@formily/core';
 
 const scoreForm = createForm();
 
 export default (props) => {
   let { form, record } = props;
-
-  form.setValues({ scoreList: record });
 
   const SchemaField = createSchemaField({
     components: {
@@ -43,12 +40,7 @@ export default (props) => {
   const computeScore = () => {
     record.forEach((item) => {
       let weightArr;
-      if (
-        item.checkkObject === '一般管理人员' ||
-        item.checkkObject === '班组长' ||
-        item.checkkObject === '班组成员' ||
-        item.checkkObject === '特别人员'
-      ) {
+      if (item.userrType === '一般人员') {
         weightArr = [0.1, 0.1, 0.1, 0, 0.15, 0.15, 0.4];
         item['score3'] = 0;
       } else {
@@ -61,6 +53,7 @@ export default (props) => {
         }
       }
       item.totalScore = totalScore;
+      item.status = '已评分';
     });
   };
 
@@ -69,7 +62,7 @@ export default (props) => {
       <Form form={scoreForm}>
         <Space align={'start'}>
           <Field
-            required
+            validator={[{ required: true, message: '选择考核项目' }]}
             name="arr"
             decorator={[FormItem]}
             component={[Checkbox.Group]}
@@ -85,7 +78,14 @@ export default (props) => {
           />
           <Field
             name="score"
-            validator={[{ required: true, minimum: 50, maximum: 100 }]}
+            validator={[
+              {
+                required: true,
+                minimum: 50,
+                maximum: 100,
+                message: '输入分值',
+              },
+            ]}
             decorator={[FormItem]}
             component={[
               NumberPicker,
@@ -93,6 +93,7 @@ export default (props) => {
             ]}
           />
           <Button
+            type={'primary'}
             onClick={async () => {
               const values = await scoreForm.submit();
               if (values) {
@@ -106,15 +107,18 @@ export default (props) => {
                 //
                 computeScore();
                 form.setValues({ scoreList: record });
+                // message.success('完成批量评分')
               }
             }}
           >
             批量评分
           </Button>
           <Button
+            type={'primary'}
             onClick={() => {
               computeScore();
               form.setValues({ scoreList: record });
+              // message.success('完成计算得分')
             }}
           >
             计算得分
@@ -169,6 +173,16 @@ export default (props) => {
               >
                 <SchemaField.String
                   name="checkkObject"
+                  x-decorator="FormItem"
+                  x-component="PreviewText.Input"
+                />
+              </SchemaField.Void>
+              <SchemaField.Void
+                x-component="ArrayTable.Column"
+                x-component-props={{ title: '被评人类别' }}
+              >
+                <SchemaField.String
+                  name="userrType"
                   x-decorator="FormItem"
                   x-component="PreviewText.Input"
                 />
@@ -264,7 +278,7 @@ export default (props) => {
               </SchemaField.Void>
               <SchemaField.Void
                 x-component="ArrayTable.Column"
-                x-component-props={{ title: '得分', width: 80 }}
+                x-component-props={{ title: '得分', width: 60 }}
               >
                 <SchemaField.Number
                   x-decorator="FormItem"

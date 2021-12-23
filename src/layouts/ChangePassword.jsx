@@ -68,7 +68,7 @@ export default () => {
                             values,
                           );
                           if (data) {
-                            dialog.Close();
+                            dialog.close();
                             message.success('修改成功');
                           }
                         }

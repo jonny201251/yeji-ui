@@ -14,53 +14,45 @@ export default (props) => {
 
   const onClick = async (type) => {
     if (type === 'add') {
-      const dataa = await get(scorePath.getScoreList);
-      if (dataa) {
-        let dialog = FormDialog(
-          {
-            title: '新增',
-            footer: null,
-            keyboard: false,
-            maskClosable: false,
-            width,
-          },
-          (form) => {
-            return (
-              <>
-                <path.Form
-                  form={form}
-                  type={type}
-                  dialog={dialog}
-                  record={dataa}
-                />
-                <FormDialog.Footer>
-                  <FormButtonGroup gutter={16} align={'right'}>
-                    <Button onClick={() => dialog.close()}>取消</Button>
-                    <LoadingButton
-                      onClick={async () => {
-                        const values = await form.submit();
-                        if (values) {
-                          const data = await post(path.add, values);
-                          if (data) {
-                            actionRef.current.clearSelected();
-                            actionRef.current.reload();
-                            dialog.close();
-                            message.success('保存成功');
-                          }
+      let dialog = FormDialog(
+        {
+          title: '新增',
+          footer: null,
+          keyboard: false,
+          maskClosable: false,
+          width,
+        },
+        (form) => {
+          return (
+            <>
+              <path.Form form={form} type={type} dialog={dialog} />
+              <FormDialog.Footer>
+                <FormButtonGroup gutter={16} align={'right'}>
+                  <Button onClick={() => dialog.close()}>取消</Button>
+                  <LoadingButton
+                    onClick={async () => {
+                      const values = await form.submit();
+                      if (values) {
+                        const data = await post(path.add, values);
+                        if (data) {
+                          actionRef.current.clearSelected();
+                          actionRef.current.reload();
+                          dialog.close();
+                          message.success('保存成功');
                         }
-                      }}
-                      type={'primary'}
-                    >
-                      保存
-                    </LoadingButton>
-                  </FormButtonGroup>
-                </FormDialog.Footer>
-              </>
-            );
-          },
-        );
-        dialog.open({});
-      }
+                      }
+                    }}
+                    type={'primary'}
+                  >
+                    保存
+                  </LoadingButton>
+                </FormButtonGroup>
+              </FormDialog.Footer>
+            </>
+          );
+        },
+      );
+      dialog.open({});
     } else if (type === 'delete') {
       if (selectedRowKeys.length === 0) {
         message.error('至少选择一条数据');
@@ -89,30 +81,30 @@ export default (props) => {
   };
 
   const renderButton = () => {
-    if (env === 'dev') {
-      return (
-        <Space>
-          <Button
-            icon={<PlusOutlined />}
-            type="primary"
-            onClick={() => {
-              onClick('add');
-            }}
-          >
-            新增
-          </Button>
-          <Button
-            icon={<DeleteOutlined />}
-            type="primary"
-            onClick={() => {
-              onClick('delete');
-            }}
-          >
-            批量删除
-          </Button>
-        </Space>
-      );
-    }
+    // if (env === 'dev') {
+    return (
+      <Space>
+        <Button
+          icon={<PlusOutlined />}
+          type="primary"
+          onClick={() => {
+            onClick('add');
+          }}
+        >
+          新增
+        </Button>
+        <Button
+          icon={<DeleteOutlined />}
+          type="primary"
+          onClick={() => {
+            onClick('delete');
+          }}
+        >
+          批量删除
+        </Button>
+      </Space>
+    );
+    // }
   };
 
   return <>{renderButton()}</>;

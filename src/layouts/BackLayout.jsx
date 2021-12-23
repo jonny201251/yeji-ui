@@ -9,6 +9,7 @@ import {
   SettingOutlined,
   UserOutlined,
 } from '@ant-design/icons';
+import * as ICONS from '@ant-design/icons';
 import './backLayout.less';
 //全局样式
 import './global.less';
@@ -18,6 +19,7 @@ import { useModel, history } from 'umi';
 import * as utils from '../utils';
 import ChangePassword from './ChangePassword';
 
+import MyDesk from './MyDesk';
 const { Header, Sider, Content } = Layout;
 
 //为了解决关闭tab,setActiveKey没有起作用问题
@@ -52,6 +54,11 @@ export default () => {
           onClick={onClick}
         >
           <Menu.Item key="61-评分人员关系-scorePath">评分人员关系</Menu.Item>
+          <Menu.Item key="62-人员评分-userScorePath">人员评分</Menu.Item>
+          <Menu.Item key="63-本部门得分情况-searchScorePath">
+            本部门得分情况
+          </Menu.Item>
+          <Menu.Item key="63-得分情况-search2ScorePath">得分情况</Menu.Item>
           <Menu.Item key="1-数据字典-sysDicPath">数据字典</Menu.Item>
           <Menu.Item key="2-部门管理-sysDeptPath">部门管理</Menu.Item>
           <Menu.Item key="3-角色管理-sysRolePath">角色管理</Menu.Item>
@@ -78,22 +85,12 @@ export default () => {
       menuList &&
       menuList.map((item) => {
         if (item.children) {
+          console.log(item.icon);
           rootSubmenuKeys.push(item.id + '');
-          let title;
-          if (item.icon) {
-            title = (
-              <span>
-                <Icon type={item.icon} />
-                <span>{item.name}</span>
-              </span>
-            );
-          } else {
-            title = <span>{item.name}</span>;
-          }
           return (
             <Menu.SubMenu
               key={item.id}
-              icon={item.icon ? React.createElement(item.icon) : <span />}
+              icon={React.createElement(ICONS[item.icon])}
               title={item.name}
               onClick={onClick}
             >
@@ -199,14 +196,20 @@ export default () => {
           <Dropdown overlay={DropdownMenu} className="user">
             <span>
               <UserOutlined style={{ paddingRight: 5, fontSize: 20 }} />
-              欢迎你,zhangsan
+              欢迎你,
+              {utils.env === 'dev' ? 'xxx' : utils.session.getItem('user').name}
             </span>
           </Dropdown>
           <span className="user">
             <Button
               type={'link'}
               style={{ color: '#fff', fontSize: 16 }}
-              onClick={async () => {}}
+              onClick={async () => {
+                const data = await utils.get(utils.checkUserPath.logout);
+                if (data) {
+                  history.push('/login');
+                }
+              }}
             >
               <LogoutOutlined />
               退出登录
@@ -241,7 +244,9 @@ export default () => {
             onTabClick={(key) => setActiveKey(key)}
           >
             <Tabs.TabPane tab="我的桌面" key="我的桌面">
-              <div style={{ padding: '0px 12px' }}>我的桌面</div>
+              <div style={{ padding: '0px 12px' }}>
+                <MyDesk />
+              </div>
             </Tabs.TabPane>
             {renderTabPane()}
           </Tabs>

@@ -53,7 +53,7 @@ export default (props) => {
         return false;
       }}
       //
-      options={options && { fullScreen: true, density: true }}
+      options={options && { fullScreen: true }}
       search={search}
       //
       headerTitle={

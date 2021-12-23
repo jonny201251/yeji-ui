@@ -29,6 +29,10 @@ import PartySecretaryForm from '../pages/PartySecretary/Form';
 import PartySecretaryList from '../pages/PartySecretary/List';
 import ScoreForm from '../pages/Score/Form';
 import ScoreList from '../pages/Score/List';
+import UserScoreForm from '../pages/UserScore/Form';
+import UserScoreList from '../pages/UserScore/List';
+import SearchScoreList from '../pages/SearchScore/List';
+import Search2ScoreList from '../pages/Search2Score/List';
 
 //flag、导出名称、sysPermission.path,三个地方必须一致
 //系统管理
@@ -101,6 +105,8 @@ export const checkUserPath = {
   getChargeDeptLeader: contextPath + '/checkUser/getChargeDeptLeader',
   changePassword: contextPath + '/checkUser/changePassword',
   initPassword: contextPath + '/checkUser/initPassword',
+  login: contextPath + '/checkUser/login',
+  logout: contextPath + '/checkUser/logout',
 };
 export const deptGroupPath = {
   flag: 'deptGroupPath',
@@ -187,4 +193,20 @@ export const scorePath = {
   edit: contextPath + '/score/edit',
   delete: contextPath + '/score/delete',
   getScoreList: contextPath + '/score/getScoreList',
+};
+export const userScorePath = {
+  flag: 'userScorePath',
+  Form: UserScoreForm,
+  List: UserScoreList,
+  list: contextPath + '/userScore/list',
+  edit: contextPath + '/userScore/edit',
+  getScoreList: contextPath + '/userScore/getScoreList',
+};
+export const searchScorePath = {
+  flag: 'searchScorePath',
+  List: SearchScoreList,
+};
+export const search2ScorePath = {
+  flag: 'search2ScorePath',
+  List: Search2ScoreList,
 };

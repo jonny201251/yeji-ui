@@ -108,26 +108,26 @@ export default (props) => {
   };
 
   const renderButton = () => {
-    if (env === 'dev') {
-      return (
-        <Space size={'middle'}>
-          <a
-            onClick={() => {
-              onClick('edit');
-            }}
-          >
-            编辑
-          </a>
-          <a
-            onClick={() => {
-              onClick('preview');
-            }}
-          >
-            浏览
-          </a>
-        </Space>
-      );
-    }
+    // if (env === 'dev') {
+    return (
+      <Space size={'middle'}>
+        <a
+          onClick={() => {
+            onClick('edit');
+          }}
+        >
+          编辑
+        </a>
+        <a
+          onClick={() => {
+            onClick('preview');
+          }}
+        >
+          浏览
+        </a>
+      </Space>
+    );
+    // }
   };
 
   return <>{renderButton()}</>;

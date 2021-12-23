@@ -1,12 +1,13 @@
-import { BaseProTable } from '../../components';
 import {
   get,
   partyPath,
+  proTableRequest,
   scorePath,
   sysDeptPath,
   sysDicPath,
 } from '../../utils';
 import { useEffect, useState } from 'react';
+import ProTable from '@ant-design/pro-table';
 
 export default () => {
   const [loading, setLoading] = useState(true);
@@ -101,7 +102,10 @@ export default () => {
           title: '评分状态',
           dataIndex: 'status',
           valueType: 'radio',
-          valueEnum: { 已评分: { text: '已评分' }, 未评分: { text: '未评分' } },
+          valueEnum: {
+            已评分: { text: '已评分', status: 'Success' },
+            未评分: { text: '未评分', status: 'Error' },
+          },
         },
       ];
       setColumns(tmp);
@@ -111,12 +115,16 @@ export default () => {
 
   return (
     !loading && (
-      <BaseProTable
-        path={scorePath}
+      <ProTable
+        bordered
+        rowKey="id"
         columns={columns}
-        search={{ span: 6 }}
-        options={true}
-        width={'98%'}
+        columnEmptyText={true}
+        //列表数据
+        params={{ listUrl: scorePath.list }}
+        request={proTableRequest}
+        //
+        options={{ fullScreen: true }}
       />
     )
   );

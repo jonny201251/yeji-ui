@@ -5,6 +5,8 @@ import { createForm } from '@formily/core';
 import * as ICONS from '@ant-design/icons';
 import './login.less';
 import logo from '../../assets/logo.svg';
+import { post, checkUserPath, session } from '../../utils';
+import { history, useModel } from 'umi';
 
 const SchemaField = createSchemaField({
   components: { FormItem, Input, Password },
@@ -17,6 +19,8 @@ const SchemaField = createSchemaField({
 const form = createForm();
 
 export default () => {
+  const { setTabPanes, setActiveKey } = useModel('useTabPanes');
+
   return (
     <div className={'bg'}>
       <div className={'container'}>
@@ -30,11 +34,21 @@ export default () => {
           form={form}
           layout="vertical"
           size="large"
-          onAutoSubmit={console.log}
+          onAutoSubmit={async (values) => {
+            const data = await post(checkUserPath.login, values);
+            if (data) {
+              session.setItem('user', data.user);
+              session.setItem('menuList', data.menuList);
+              form.reset();
+              setTabPanes([]);
+              setActiveKey('首页');
+              history.push('/back');
+            }
+          }}
         >
           <SchemaField>
             <SchemaField.String
-              name="username"
+              name="name"
               title="用户名"
               required
               x-decorator="FormItem"
