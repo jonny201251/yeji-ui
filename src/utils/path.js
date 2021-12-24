@@ -107,6 +107,7 @@ export const checkUserPath = {
   initPassword: contextPath + '/checkUser/initPassword',
   login: contextPath + '/checkUser/login',
   logout: contextPath + '/checkUser/logout',
+  haveLogin: contextPath + '/checkUser/haveLogin',
 };
 export const deptGroupPath = {
   flag: 'deptGroupPath',

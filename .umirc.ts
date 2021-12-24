@@ -16,6 +16,6 @@ export default defineConfig({
   base:页面路由前缀
   publicPath:css、js、图片等静态资源文件的前缀
  */
-  /*  base: '/yeji/',
-  publicPath: '/yeji/',*/
+  // base: '/yeji/',
+  // publicPath: '/yeji/',
 });

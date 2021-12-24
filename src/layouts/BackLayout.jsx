@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Dropdown, Layout, Menu, Tabs } from 'antd';
+import * as ICONS from '@ant-design/icons';
 import {
   CloseOutlined,
   EditOutlined,
@@ -9,17 +10,15 @@ import {
   SettingOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import * as ICONS from '@ant-design/icons';
 import './backLayout.less';
 //全局样式
 import './global.less';
 
 import _ from 'lodash';
-import { useModel, history } from 'umi';
+import { history, useModel } from 'umi';
 import * as utils from '../utils';
 import ChangePassword from './ChangePassword';
 
-import MyDesk from './MyDesk';
 const { Header, Sider, Content } = Layout;
 
 //为了解决关闭tab,setActiveKey没有起作用问题
@@ -161,8 +160,10 @@ export default () => {
     });
   };
 
-  useEffect(() => {
+  useEffect(async () => {
     setOpenKeys(rootSubmenuKeys);
+    //
+    await utils.get(utils.checkUserPath.haveLogin);
   }, []);
 
   const DropdownMenu = (
@@ -197,7 +198,7 @@ export default () => {
             <span>
               <UserOutlined style={{ paddingRight: 5, fontSize: 20 }} />
               欢迎你,
-              {utils.env === 'dev' ? 'xxx' : utils.session.getItem('user').name}
+              {utils.env === 'dev' ? 'xxx' : utils.session.getItem('name')}
             </span>
           </Dropdown>
           <span className="user">
@@ -244,9 +245,7 @@ export default () => {
             onTabClick={(key) => setActiveKey(key)}
           >
             <Tabs.TabPane tab="我的桌面" key="我的桌面">
-              <div style={{ padding: '0px 12px' }}>
-                <MyDesk />
-              </div>
+              <div style={{ padding: '0px 12px' }} />
             </Tabs.TabPane>
             {renderTabPane()}
           </Tabs>

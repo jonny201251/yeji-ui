@@ -27,30 +27,6 @@ export default (props) => {
       item.status = '已评分';
     });
   };
-  //优秀率
-  const goodRate = (values) => {
-    //一般人员人数，一般人员的得分>=90的人数
-    let commonCount = 0,
-      commonCount2 = 0,
-      middleCount = 0,
-      middleCount2 = 0;
-    values.scoreList.forEach((item) => {
-      if (item.scoreType !== '党务评分' && item.userrType !== '公司领导') {
-        if (item.userrType === '一般人员') {
-          commonCount += 1;
-          if (item.totalScore >= 90) {
-            commonCount2 += 1;
-          }
-        } else if (item.userrType === '中层领导') {
-          middleCount += 1;
-          if (item.totalScore >= 90) {
-            middleCount2 += 1;
-          }
-        }
-      }
-    });
-    return [commonCount2 / commonCount, middleCount2 / middleCount];
-  };
 
   return (
     <Button
@@ -76,31 +52,50 @@ export default (props) => {
                       onClick={async () => {
                         const values = await form.submit();
                         if (values) {
-                          //先计算
+                          //得分
                           computeScore(values);
-                          //优秀率
-                          let arr = goodRate(values);
-                          if (arr[0] > 0.2 && arr[1] > 0.2) {
-                            Modal.error({
-                              content:
-                                '中层领导和一般人员的优秀率，都不能超过20%',
-                              okText: '知道了',
-                            });
-                            return;
+                          //优秀率，一般人员人数，一般人员的得分>=90的人数
+                          let commonCount = 0,
+                            commonCount2 = 0,
+                            middleCount = 0,
+                            middleCount2 = 0;
+                          values.scoreList.forEach((item) => {
+                            if (
+                              item.scoreType !== '党务评分' &&
+                              item.userrType !== '公司领导'
+                            ) {
+                              if (item.userrType === '一般人员') {
+                                commonCount += 1;
+                                if (item.totalScore >= 90) {
+                                  commonCount2 += 1;
+                                }
+                              } else if (item.userrType === '中层领导') {
+                                middleCount += 1;
+                                if (item.totalScore >= 90) {
+                                  middleCount2 += 1;
+                                }
+                              }
+                            }
+                          });
+                          if (middleCount >= 5) {
+                            if (middleCount2 / middleCount > 0.2) {
+                              Modal.error({
+                                content:
+                                  '中层领导的优秀率（90分以上为优秀），不能超过20%',
+                                okText: '知道了',
+                              });
+                              return;
+                            }
                           }
-                          if (arr[1] > 0.2) {
-                            Modal.error({
-                              content: '中层领导的优秀率，不能超过20%',
-                              okText: '知道了',
-                            });
-                            return;
-                          }
-                          if (arr[0] > 0.2) {
-                            Modal.error({
-                              content: '一般人员的优秀率，不能超过20%',
-                              okText: '知道了',
-                            });
-                            return;
+                          if (commonCount >= 5) {
+                            if (commonCount2 / commonCount > 0.2) {
+                              Modal.error({
+                                content:
+                                  '一般人员的优秀率（90分以上为优秀），不能超过20%',
+                                okText: '知道了',
+                              });
+                              return;
+                            }
                           }
                           const data = await post(userScorePath.edit, values);
                           if (data) {

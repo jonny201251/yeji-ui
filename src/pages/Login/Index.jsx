@@ -24,12 +24,7 @@ export default () => {
   return (
     <div className={'bg'}>
       <div className={'container'}>
-        <div className={'name'}>
-          <span className={'logo'}>
-            <img alt={'logo'} src={logo} style={{ width: '100%' }} />
-          </span>
-          <span className={'title'}>业绩考核系统</span>
-        </div>
+        <div className={'title'}>业绩考核系统</div>
         <Form
           form={form}
           layout="vertical"
@@ -38,10 +33,11 @@ export default () => {
             const data = await post(checkUserPath.login, values);
             if (data) {
               session.setItem('user', data.user);
+              session.setItem('name', data.user.name);
               session.setItem('menuList', data.menuList);
               form.reset();
               setTabPanes([]);
-              setActiveKey('首页');
+              setActiveKey('我的桌面');
               history.push('/back');
             }
           }}
