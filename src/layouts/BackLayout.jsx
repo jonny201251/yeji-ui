@@ -53,6 +53,7 @@ export default () => {
           onClick={onClick}
         >
           <Menu.Item key="61-评分人员关系-scorePath">评分人员关系</Menu.Item>
+          <Menu.Item key="64-述职材料-uploadPath">述职材料</Menu.Item>
           <Menu.Item key="62-人员评分-userScorePath">人员评分</Menu.Item>
           <Menu.Item key="63-本部门得分情况-searchScorePath">
             本部门得分情况
@@ -163,7 +164,7 @@ export default () => {
   useEffect(async () => {
     setOpenKeys(rootSubmenuKeys);
     //
-    await utils.get(utils.checkUserPath.haveLogin);
+    // await utils.get(utils.checkUserPath.haveLogin);
   }, []);
 
   const DropdownMenu = (

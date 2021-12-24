@@ -33,6 +33,8 @@ import UserScoreForm from '../pages/UserScore/Form';
 import UserScoreList from '../pages/UserScore/List';
 import SearchScoreList from '../pages/SearchScore/List';
 import Search2ScoreList from '../pages/Search2Score/List';
+import UploadForm from '../pages/Upload/Form';
+import UploadList from '../pages/Upload/List';
 
 //flag、导出名称、sysPermission.path,三个地方必须一致
 //系统管理
@@ -210,4 +212,14 @@ export const searchScorePath = {
 export const search2ScorePath = {
   flag: 'search2ScorePath',
   List: Search2ScoreList,
+};
+export const uploadPath = {
+  flag: 'uploadPath',
+  List: UploadList,
+  Form: UploadForm,
+  list: contextPath + '/upload/list',
+  get: contextPath + '/upload/get',
+  add: contextPath + '/upload/add',
+  edit: contextPath + '/upload/edit',
+  delete: contextPath + '/upload/delete',
 };
