@@ -4,8 +4,7 @@ import { Form, FormItem, Input, Password, Submit } from '@formily/antd';
 import { createForm } from '@formily/core';
 import * as ICONS from '@ant-design/icons';
 import './login.less';
-import logo from '../../assets/logo.svg';
-import { post, checkUserPath, session } from '../../utils';
+import { checkUserPath, post, session } from '../../utils';
 import { history, useModel } from 'umi';
 
 const SchemaField = createSchemaField({

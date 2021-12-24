@@ -107,7 +107,7 @@ export default () => {
       <BaseProTable
         path={checkUserPath}
         columns={columns}
-        search={{ span: 6 }}
+        search={true}
         options={true}
       />
     )

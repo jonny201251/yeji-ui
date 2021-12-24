@@ -20,7 +20,7 @@ export default (props) => {
   newColumns.push({
     title: '操作',
     valueType: 'option',
-    fixed: 'right',
+    // fixed: 'right',
     render: (text, record, _, action) => [
       <OperateButton
         record={record}
