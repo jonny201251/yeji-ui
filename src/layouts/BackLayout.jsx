@@ -85,7 +85,6 @@ export default () => {
       menuList &&
       menuList.map((item) => {
         if (item.children) {
-          console.log(item.icon);
           rootSubmenuKeys.push(item.id + '');
           return (
             <Menu.SubMenu
@@ -198,7 +197,6 @@ export default () => {
           <Dropdown overlay={DropdownMenu} className="user">
             <span>
               <UserOutlined style={{ paddingRight: 5, fontSize: 20 }} />
-              欢迎你,
               {utils.env === 'dev' ? 'xxx' : utils.session.getItem('name')}
             </span>
           </Dropdown>
