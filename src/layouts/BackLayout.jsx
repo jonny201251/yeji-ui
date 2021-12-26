@@ -164,7 +164,7 @@ export default () => {
   useEffect(async () => {
     setOpenKeys(rootSubmenuKeys);
     //
-    // await utils.get(utils.checkUserPath.haveLogin);
+    await utils.get(utils.checkUserPath.haveLogin);
   }, []);
 
   const DropdownMenu = (
