@@ -23,7 +23,7 @@ export default () => {
   return (
     <div className={'bg'}>
       <div className={'container'}>
-        <div className={'title'}>业绩考核系统</div>
+        <div className={'title'}>全员业绩考核系统</div>
         <Form
           form={form}
           layout="vertical"

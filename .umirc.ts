@@ -9,7 +9,7 @@ export default defineConfig({
     { path: '/back', component: '@/layouts/BackLayout' },
   ],
   fastRefresh: {},
-  title: '业绩考核系统',
+  title: '全员业绩考核系统',
   proxy: { '/yeji': { target: 'http://localhost:8081', changeOrigin: true } },
   /*
   部署时打开注释

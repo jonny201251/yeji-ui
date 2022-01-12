@@ -1,39 +1,38 @@
 import { useEffect, useRef, useState } from 'react';
 import ProTable from '@ant-design/pro-table';
-import { get, proTableRequest, userScorePath } from '../../utils';
+import {
+  get,
+  proTableRequest,
+  columnRequest,
+  userScorePath,
+} from '../../utils';
 import ToolBarButton from './ToolBarButton';
 
 export default () => {
   const [dataSource, setDataSource] = useState();
+  const [checkkObject, setCheckkObject] = useState();
   const [loading, setLoading] = useState(true);
   const actionRef = useRef();
 
   let columns = [
-    {
-      title: '评分人姓名',
-      dataIndex: 'userName',
-      valueType: 'text',
-      search: false,
-    },
-    {
-      title: '评分人类型',
-      dataIndex: 'checkUserType',
-      valueType: 'text',
-      search: false,
-    },
     {
       title: '评分类别',
       dataIndex: 'scoreType',
       valueType: 'text',
       search: false,
     },
-    { title: '被评人姓名', dataIndex: 'userrName', valueType: 'text' },
     {
       title: '被评人类型',
       dataIndex: 'checkkObject',
-      valueType: 'text',
-      search: false,
+      valueType: 'select',
+      request: async () => {
+        const data2 = await get(userScorePath.getCheckkObject);
+        if (data2) {
+          return data2.map((item) => ({ label: item, value: item }));
+        }
+      },
     },
+    { title: '被评人姓名', dataIndex: 'userrName', valueType: 'text' },
     // { title: '党支部', dataIndex: 'partyName', valueType: 'text', search: false },
     {
       title: '被评人类别',
@@ -67,8 +66,10 @@ export default () => {
 
   useEffect(async () => {
     const data = await get(userScorePath.getScoreList);
-    if (data) {
+    const data2 = await get(userScorePath.getCheckkObject);
+    if (data && data2) {
       setDataSource(data);
+      setCheckkObject(data2);
       setLoading(false);
     }
   }, []);
@@ -91,8 +92,10 @@ export default () => {
         options={{ fullScreen: true }}
         //
         headerTitle={
-          <ToolBarButton actionRef={actionRef} record={dataSource} />
+          <ToolBarButton actionRef={actionRef} checkkObject={checkkObject} />
         }
+        //
+        search={{ span: 6 }}
       />
     )
   );

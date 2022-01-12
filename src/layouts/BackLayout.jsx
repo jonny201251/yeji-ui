@@ -192,7 +192,7 @@ export default () => {
             },
           },
         )}
-        <span className="web-name">业绩考核系统</span>
+        <span className="web-name">全员业绩考核系统</span>
         <div className="right">
           <Dropdown overlay={DropdownMenu} className="user">
             <span>
