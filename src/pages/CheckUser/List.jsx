@@ -86,16 +86,6 @@ export default () => {
           valueEnum: partyRoleValueEnum,
         },
         { title: '班组名称', dataIndex: 'groupName', valueType: 'text' },
-        {
-          title: '工作状态',
-          dataIndex: 'workStatus',
-          valueType: 'radio',
-          valueEnum: {
-            在岗: { text: '在岗' },
-            离职: { text: '离职' },
-            退休: { text: '退休' },
-          },
-        },
       ];
       setColumns(tmp);
       setLoading(false);
@@ -107,7 +97,7 @@ export default () => {
       <BaseProTable
         path={checkUserPath}
         columns={columns}
-        search={true}
+        search={{ span: 6 }}
         options={true}
       />
     )

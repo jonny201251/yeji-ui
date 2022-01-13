@@ -9,7 +9,7 @@ export default () => {
   const actionRef = useRef();
 
   let columns = [
-    { title: '年份', dataIndex: 'year', search: false },
+    { title: '年份', dataIndex: 'year' },
     {
       title: '名称',
       dataIndex: 'name',
@@ -42,6 +42,7 @@ export default () => {
       }}
       //
       options={false}
+      search={false}
       //
       headerTitle={
         <ToolBarButton

@@ -17,6 +17,7 @@ import { Button, ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
 import { createForm } from '@formily/core';
 import { session } from '../../utils';
+import { DownloadOutlined } from '@ant-design/icons';
 
 const scoreForm = createForm();
 const checkkObjectForm = createForm();
@@ -32,7 +33,25 @@ export default (props) => {
       </span>
     );
   };
-
+  const MyButton = (props) => {
+    const record = ArrayTable.useRecord();
+    if (record.diskName) {
+      return (
+        <Button
+          {...props}
+          onClick={() => {
+            window.location.href = record.diskName;
+            return;
+          }}
+          type={'text'}
+          icon={<DownloadOutlined />}
+          style={{ marginLeft: 6 }}
+        />
+      );
+    } else {
+      return <></>;
+    }
+  };
   //筛选出的评分数据
   const [record2, setRecord2] = useState(record);
 
@@ -49,6 +68,7 @@ export default (props) => {
       Submit,
       Checkbox,
       ArrayTableIndex,
+      MyButton,
     },
   });
   const computeScore = () => {
@@ -361,7 +381,7 @@ export default (props) => {
               </SchemaField.Void>
               <SchemaField.Void
                 x-component="ArrayTable.Column"
-                x-component-props={{ title: '得分', width: 60 }}
+                x-component-props={{ title: '得分', width: 50 }}
               >
                 <SchemaField.Number
                   x-decorator="FormItem"
@@ -369,6 +389,14 @@ export default (props) => {
                   required
                   x-component="PreviewText.Input"
                 />
+              </SchemaField.Void>
+              <SchemaField.Void
+                x-component="ArrayTable.Column"
+                x-component-props={{ title: '述职材料', width: 75 }}
+              >
+                <SchemaField.Void x-component="FormItem">
+                  <SchemaField.Void x-component="MyButton" />
+                </SchemaField.Void>
               </SchemaField.Void>
             </SchemaField.Object>
           </SchemaField.Array>

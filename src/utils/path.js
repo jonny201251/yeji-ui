@@ -204,6 +204,8 @@ export const userScorePath = {
   list: contextPath + '/userScore/list',
   edit: contextPath + '/userScore/edit',
   getScoreList: contextPath + '/userScore/getScoreList',
+  edit2: contextPath + '/userScore/edit2',
+  getScoreList2: contextPath + '/userScore/getScoreList2',
   getCheckkObject: contextPath + '/userScore/getCheckkObject',
 };
 export const searchScorePath = {

@@ -108,7 +108,7 @@ export default (props) => {
                               }
                             });
                             if (count11 >= 5) {
-                              if (count22 / count11 > 0.2) {
+                              if (count22 / count11 > 0.25) {
                                 Modal.error({
                                   width: 650,
                                   content: `副总师级+部门正职领导的优秀率，不能超过20%，优秀人数(${_.round(
@@ -120,7 +120,7 @@ export default (props) => {
                               }
                             }
                             if (count33 >= 5) {
-                              if (count44 / count33 > 0.2) {
+                              if (count44 / count33 > 0.25) {
                                 Modal.error({
                                   width: 650,
                                   content: `部门副职领导的优秀率，不能超过20%，优秀人数(${_.round(
@@ -132,7 +132,7 @@ export default (props) => {
                               }
                             }
                             if (count55 >= 5) {
-                              if (count66 / count55 > 0.2) {
+                              if (count66 / count55 > 0.25) {
                                 Modal.error({
                                   width: 650,
                                   content: `一般人员的优秀率，不能超过20%，优秀人数(${_.round(

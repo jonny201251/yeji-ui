@@ -108,8 +108,6 @@ export default (props) => {
             .setState({ dataSource: dataa, display: 'visible' });
         }
       }
-    } else {
-      form.query('workStatus').take().value = '在岗';
     }
     //
     const data2 = await get(sysDeptPath.getTreeSelect);
@@ -196,18 +194,6 @@ export default (props) => {
             title="党支部角色"
             x-decorator="FormItem"
             x-component="Select"
-          />
-          <SchemaField.String
-            name="workStatus"
-            required
-            title="工作状态"
-            x-decorator="FormItem"
-            x-component="Radio.Group"
-            enum={[
-              { label: '在岗', value: '在岗' },
-              { label: '离职', value: '离职' },
-              { label: '退休', value: '退休' },
-            ]}
           />
           <SchemaField.Number
             name="deptId"

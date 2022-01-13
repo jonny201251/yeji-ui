@@ -12,11 +12,12 @@ export function get(url, params) {
     .get(url, { params: params })
     .then((res) => {
       if (res.msg === '用户未登录') {
-        Modal.error({
-          content: '登录过期',
-          okText: '重新登录',
-          onOk: () => history.push('/login'),
-        });
+        history.push('/login');
+        // Modal.error({
+        //   content: '登录过期',
+        //   okText: '重新登录',
+        //   onOk: () => history.push('/login')
+        // })
       } else if (res.code === 200) {
         return res.data;
       } else {
@@ -37,11 +38,7 @@ export function post(url, values) {
     .post(url, { data: values })
     .then((res) => {
       if (res.msg === '用户未登录') {
-        Modal.error({
-          content: '登录过期',
-          okText: '重新登录',
-          onOk: () => history.push('/login'),
-        });
+        history.push('/login');
       } else if (res.code === 200) {
         return res.data;
       } else {
