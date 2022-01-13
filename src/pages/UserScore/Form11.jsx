@@ -3,15 +3,13 @@ import {
   Form,
   FormItem,
   FormLayout,
-  Input,
   NumberPicker,
   PreviewText,
   Space,
 } from '@formily/antd';
 import { createSchemaField } from '@formily/react';
 import React, { useEffect, useState } from 'react';
-import { ConfigProvider, Button } from 'antd';
-import { DownloadOutlined } from '@ant-design/icons';
+import { Button, ConfigProvider, message } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
 
 const projectArr = [
@@ -74,13 +72,17 @@ export default (props) => {
   return (
     <ConfigProvider locale={zhCN}>
       <Form form={form}>
-        <Space style={{ marginBottom: 10 }}>
+        <Space style={{ marginBottom: 22 }}>
           <b>{'姓名:'}</b>
           {record.userrName}
           <Button
             onClick={() => {
-              window.location.href = record.diskName;
-              return;
+              if (record.diskName) {
+                window.location.href = record.diskName;
+                return;
+              } else {
+                message.error('还没有上传述职材料');
+              }
             }}
             type={'link'}
           >
