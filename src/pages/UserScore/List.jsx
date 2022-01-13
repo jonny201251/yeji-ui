@@ -5,12 +5,14 @@ import ToolBarButton from './ToolBarButton';
 import OperateButton from './OperateButton';
 
 export default () => {
-  const [dataSource, setDataSource] = useState();
-  const [checkkObject, setCheckkObject] = useState();
-  const [loading, setLoading] = useState(true);
   const actionRef = useRef();
 
   let columns = [
+    {
+      align: 'center',
+      title: '序号',
+      valueType: 'index',
+    },
     {
       align: 'center',
       title: '评分类别',
@@ -22,13 +24,8 @@ export default () => {
       align: 'center',
       title: '被评人类型',
       dataIndex: 'checkkObject',
-      valueType: 'select',
-      request: async () => {
-        const data2 = await get(userScorePath.getCheckkObject);
-        if (data2) {
-          return data2.map((item) => ({ label: item, value: item }));
-        }
-      },
+      valueType: 'text',
+      request: () => get(userScorePath.getCheckkObject),
     },
     {
       align: 'center',
@@ -38,13 +35,6 @@ export default () => {
       render: (text, record) => {
         return <OperateButton record={record} actionRef={actionRef} />;
       },
-    },
-    {
-      align: 'center',
-      title: '被评人类别',
-      dataIndex: 'userrType',
-      valueType: 'text',
-      search: false,
     },
     {
       align: 'center',
@@ -89,9 +79,7 @@ export default () => {
       //
       options={{ fullScreen: true }}
       //
-      headerTitle={
-        <ToolBarButton actionRef={actionRef} checkkObject={checkkObject} />
-      }
+      headerTitle={<ToolBarButton actionRef={actionRef} />}
       //
       search={{ span: 6 }}
     />

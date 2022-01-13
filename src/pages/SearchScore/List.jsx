@@ -6,6 +6,12 @@ import { DownloadOutlined } from '@ant-design/icons';
 export default () => {
   let columns = [
     {
+      align: 'center',
+      title: '序号',
+      valueType: 'index',
+      width: 50,
+    },
+    {
       title: '考核年份',
       dataIndex: 'year',
       valueType: 'select',

@@ -106,10 +106,7 @@ export default (props) => {
             title={<b>{'筛选类型'}</b>}
             decorator={[FormItem]}
             component={[Checkbox.Group]}
-            dataSource={checkkObject.map((item) => ({
-              label: item,
-              value: item,
-            }))}
+            dataSource={checkkObject}
           />
           <Button
             type={'primary'}

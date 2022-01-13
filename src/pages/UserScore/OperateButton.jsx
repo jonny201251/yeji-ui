@@ -20,7 +20,7 @@ export default (props) => {
   const onClick = async () => {
     let dialog = FormDialog(
       {
-        title: '单人评分',
+        title: '个人评分',
         footer: null,
         keyboard: false,
         maskClosable: false,

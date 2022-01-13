@@ -1,5 +1,5 @@
 import { Button, message, Modal } from 'antd';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { FormButtonGroup, FormDialog } from '@formily/antd';
 import Form1 from './Form1';
 import Form2 from './Form2';

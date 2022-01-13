@@ -68,9 +68,10 @@ export async function proTableRequest(params, sorter, filter) {
   }
 }
 
+//
 export async function columnRequest(url, params) {
   const data = await get(url, params);
   if (data) {
-    return data.map((item) => ({ label: item, value: item }));
+    return data;
   }
 }

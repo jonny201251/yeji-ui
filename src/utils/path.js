@@ -207,6 +207,7 @@ export const userScorePath = {
   edit2: contextPath + '/userScore/edit2',
   getScoreList2: contextPath + '/userScore/getScoreList2',
   getCheckkObject: contextPath + '/userScore/getCheckkObject',
+  getCheckkObjectAll: contextPath + '/userScore/getCheckkObjectAll',
 };
 export const searchScorePath = {
   flag: 'searchScorePath',

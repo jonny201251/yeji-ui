@@ -12,7 +12,7 @@ export default (props) => {
     if (dbRecord) {
       let dialog = FormDialog(
         {
-          title: '编辑',
+          title: '述职材料',
           footer: null,
           keyboard: false,
           maskClosable: false,
@@ -34,13 +34,13 @@ export default (props) => {
                           actionRef.current.clearSelected();
                           actionRef.current.reload();
                           dialog.close();
-                          message.success('编辑成功');
+                          message.success('上传成功');
                         }
                       }
                     }}
                     type={'primary'}
                   >
-                    编辑
+                    确定
                   </LoadingButton>
                 </FormButtonGroup>
               </FormDialog.Footer>
