@@ -125,6 +125,8 @@ export default () => {
         request={proTableRequest}
         //
         options={{ fullScreen: true }}
+        //
+        search={{ span: 6 }}
       />
     )
   );
