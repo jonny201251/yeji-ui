@@ -57,7 +57,7 @@ export default () => {
       align: 'center',
       title: '得分',
       dataIndex: 'totalScore',
-      valueType: 'text',
+      valueType: 'digit',
       search: false,
       sorter: true,
     },
