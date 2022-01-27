@@ -44,12 +44,15 @@ export default (props) => {
       if (i >= 3) {
         if (record.status === '已评分') {
           arr.push({
-            project: projectArr[i],
+            project: projectArr[i + 1],
             score: record['score' + (i + 1)],
             weight: weightTextArr[i + 1],
           });
         } else {
-          arr.push({ project: projectArr[i], weight: weightTextArr[i + 1] });
+          arr.push({
+            project: projectArr[i + 1],
+            weight: weightTextArr[i + 1],
+          });
         }
       } else {
         if (record.status === '已评分') {

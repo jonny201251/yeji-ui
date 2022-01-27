@@ -59,7 +59,7 @@ export default () => {
       dataIndex: 'totalScore',
       valueType: 'digit',
       search: false,
-      sorter: true,
+      sorter: (a, b) => a.totalScore - b.totalScore,
     },
   ];
 

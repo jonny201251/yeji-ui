@@ -212,6 +212,7 @@ export const userScorePath = {
 export const searchScorePath = {
   flag: 'searchScorePath',
   List: SearchScoreList,
+  list: contextPath + '/searchScore/list',
 };
 export const search2ScorePath = {
   flag: 'search2ScorePath',

@@ -71,10 +71,8 @@ export default (props) => {
                           userrType: record.userrType,
                           checkkObject: record.checkkObject,
                         });
-                        if (scoreList && scoreList.length >= 5) {
-                          console.log(scoreList);
+                        if (scoreList && scoreList.length >= 4) {
                           scoreList.push(record);
-                          console.log(scoreList);
                           let count11 = scoreList.length,
                             count22 = 0;
                           scoreList.forEach((item) => {

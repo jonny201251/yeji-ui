@@ -1,5 +1,5 @@
 import ProTable from '@ant-design/pro-table';
-import { searchScorePath } from '../../utils';
+import { proTableRequest, searchScorePath } from '../../utils';
 import { Button } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
 
@@ -21,55 +21,62 @@ export default () => {
       },
       initialValue: '2021',
     },
-    { title: '姓名', dataIndex: 'name', valueType: 'text' },
+    { title: '部门', dataIndex: 'depttName', valueType: 'text', search: false },
+    {
+      title: '类型',
+      dataIndex: 'checkkObject',
+      valueType: 'text',
+      search: false,
+    },
+    { title: '姓名', dataIndex: 'userrName', valueType: 'text', search: false },
     {
       title: '政治素质',
-      dataIndex: 'checkUserType',
+      dataIndex: 'score0',
       valueType: 'text',
       search: false,
     },
     {
       title: '职业素养',
-      dataIndex: 'scoreType',
+      dataIndex: 'score1',
       valueType: 'text',
       search: false,
     },
     {
       title: '廉洁从业',
-      dataIndex: 'userrName',
+      dataIndex: 'score2',
       valueType: 'text',
       search: false,
     },
-    {
-      title: '决策能力',
-      dataIndex: 'checkkObject',
-      valueType: 'text',
-      search: false,
-    },
+    // {
+    //   title: '决策能力',
+    //   dataIndex: 'score3',
+    //   valueType: 'text',
+    //   search: false
+    // },
     {
       title: '执行能力',
-      dataIndex: 'userrType',
+      dataIndex: 'score4',
       valueType: 'text',
       search: false,
     },
     {
       title: '创新能力',
-      dataIndex: 'depttName',
+      dataIndex: 'score5',
       valueType: 'text',
       search: false,
     },
     {
       title: '工作业绩',
-      dataIndex: 'status',
+      dataIndex: 'score6',
       valueType: 'text',
       search: false,
     },
     {
       title: '得分',
       dataIndex: 'totalScore',
-      valueType: 'text',
+      valueType: 'digit',
       search: false,
-      sorter: true,
+      sorter: (a, b) => a.totalScore - b.totalScore,
     },
   ];
 
@@ -80,17 +87,21 @@ export default () => {
       columns={columns}
       columnEmptyText={true}
       //列表数据
+      pagination={{
+        pageSize: 50,
+      }}
       params={{ listUrl: searchScorePath.list }}
+      request={proTableRequest}
       //
       options={{ fullScreen: true }}
       //
       search={{ span: 6 }}
       //
-      headerTitle={
-        <Button type={'primary'} icon={<DownloadOutlined />}>
-          导出本部门得分
-        </Button>
-      }
+      // headerTitle={
+      //   <Button type={'primary'} icon={<DownloadOutlined/>}>
+      //     导出本部门得分
+      //   </Button>
+      // }
     />
   );
 };
