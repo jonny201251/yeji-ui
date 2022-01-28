@@ -208,6 +208,7 @@ export const userScorePath = {
   getScoreList2: contextPath + '/userScore/getScoreList2',
   getCheckkObject: contextPath + '/userScore/getCheckkObject',
   getCheckkObjectAll: contextPath + '/userScore/getCheckkObjectAll',
+  download1: contextPath + '/userScore/download1',
 };
 export const searchScorePath = {
   flag: 'searchScorePath',
