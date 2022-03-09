@@ -36,6 +36,9 @@ import Search2ScoreList from '../pages/Search2Score/List';
 import UploadForm from '../pages/Upload/Form';
 import UploadList from '../pages/Upload/List';
 
+import ScoreResult1List from '../pages/ScoreResult1/List';
+import ScoreResult2List from '../pages/ScoreResult2/List';
+
 //flag、导出名称、sysPermission.path,三个地方必须一致
 //系统管理
 export const sysDicPath = {
@@ -62,6 +65,7 @@ export const sysDeptPath = {
   getTreeSelect2: contextPath + '/sysDept/getTreeSelect2',
   getIdNameMap: contextPath + '/sysDept/getIdNameMap',
   getLabelValue: contextPath + '/sysDept/getLabelValue',
+  getLabelValue2: contextPath + '/sysDept/getLabelValue2',
 };
 export const sysRolePath = {
   flag: 'sysRolePath',
@@ -121,6 +125,7 @@ export const deptGroupPath = {
   edit: contextPath + '/deptGroup/edit',
   delete: contextPath + '/deptGroup/delete',
   getLabelValue: contextPath + '/deptGroup/getLabelValue',
+  getLabelValue2: contextPath + '/deptGroup/getLabelValue2',
   getIdNameMap: contextPath + '/deptGroup/getIdNameMap',
 };
 export const deptScoreRelationPath = {
@@ -207,8 +212,10 @@ export const userScorePath = {
   edit2: contextPath + '/userScore/edit2',
   getScoreList2: contextPath + '/userScore/getScoreList2',
   getCheckkObject: contextPath + '/userScore/getCheckkObject',
+  getCheckUserType: contextPath + '/userScore/getCheckUserType',
   getCheckkObjectAll: contextPath + '/userScore/getCheckkObjectAll',
   download1: contextPath + '/userScore/download1',
+  download2: contextPath + '/userScore/download2',
 };
 export const searchScorePath = {
   flag: 'searchScorePath',
@@ -228,4 +235,15 @@ export const uploadPath = {
   add: contextPath + '/upload/add',
   edit: contextPath + '/upload/edit',
   delete: contextPath + '/upload/delete',
+};
+
+export const scoreResult1Path = {
+  flag: 'scoreResult1Path',
+  list: contextPath + '/scoreResult1/list',
+  List: ScoreResult1List,
+};
+export const scoreResult2Path = {
+  flag: 'scoreResult2Path',
+  list: contextPath + '/scoreResult22/list',
+  List: ScoreResult2List,
 };

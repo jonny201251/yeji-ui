@@ -74,7 +74,7 @@ export default () => {
       pagination={{
         pageSize: 100,
       }}
-      params={{ listUrl: userScorePath.list }}
+      params={{ listUrl: userScorePath.list, pageSize: 100 }}
       request={proTableRequest}
       //
       options={{ fullScreen: true }}
