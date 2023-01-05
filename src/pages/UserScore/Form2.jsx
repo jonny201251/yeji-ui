@@ -6,7 +6,6 @@ import {
   FormItem,
   FormLayout,
   Input,
-  NumberPicker,
   PreviewText,
   Space,
   Submit,
@@ -17,6 +16,7 @@ import { DownloadOutlined } from '@ant-design/icons';
 import { Button, ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
 import { createForm } from '@formily/core';
+import { NumberPicker } from '../../components';
 
 const scoreForm = createForm();
 const checkkObjectForm = createForm();

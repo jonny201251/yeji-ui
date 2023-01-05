@@ -4,8 +4,9 @@ import { FormButtonGroup, FormDialog } from '@formily/antd';
 import Form1 from './Form1';
 import Form2 from './Form2';
 import { LoadingButton } from '../../components';
-import { get, post, session, userScorePath } from '../../utils';
+import { get, post, session, uploadPath, userScorePath } from '../../utils';
 import _ from 'lodash';
+import ImportForm from './ImportForm';
 
 export default (props) => {
   let { actionRef } = props;
@@ -184,6 +185,54 @@ export default (props) => {
         type={'primary'}
       >
         导出评分模板
+      </Button>
+      <Button
+        onClick={async () => {
+          let dialog = FormDialog(
+            {
+              title: '导入评分模板',
+              footer: null,
+              keyboard: false,
+              maskClosable: false,
+            },
+            (form) => {
+              return (
+                <>
+                  <ImportForm form={form} dialog={dialog} />
+                  <FormDialog.Footer>
+                    <FormButtonGroup gutter={16} align={'right'}>
+                      <Button onClick={() => dialog.close()}>取消</Button>
+                      <LoadingButton
+                        onClick={async () => {
+                          const values = await form.submit();
+                          if (values) {
+                            const data = await post(
+                              userScorePath.edit3,
+                              values,
+                            );
+                            if (data) {
+                              actionRef.current.clearSelected();
+                              actionRef.current.reload();
+                              dialog.close();
+                              message.success('导入成功');
+                            }
+                          }
+                        }}
+                        type={'primary'}
+                      >
+                        确定
+                      </LoadingButton>
+                    </FormButtonGroup>
+                  </FormDialog.Footer>
+                </>
+              );
+            },
+          );
+          dialog.open();
+        }}
+        type={'primary'}
+      >
+        导入评分模板
       </Button>
     </Space>
   );

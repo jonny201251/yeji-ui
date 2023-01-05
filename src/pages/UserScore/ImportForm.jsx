@@ -9,12 +9,12 @@ const NormalUpload = (props) => {
   return (
     <Upload
       {...props}
-      action={contextPath + '/uploadFile'}
+      action={contextPath + '/uploadFile2'}
       headers={{
         authorization: 'authorization-text',
       }}
     >
-      <Button icon={<UploadOutlined />}>上传文件</Button>
+      <Button icon={<UploadOutlined />}>模板文件</Button>
     </Upload>
   );
 };
@@ -24,21 +24,7 @@ const SchemaField = createSchemaField({
 });
 
 export default (props) => {
-  let { form, record } = props;
-
-  useEffect(async () => {
-    if (record) {
-      form.setValues(record);
-      //
-      form.query('year').take().pattern = 'readPretty';
-    } else {
-      let year = form.query('year').take();
-      year.initialValue = '2022';
-      year.pattern = 'readPretty';
-      //
-      form.query('name').take().initialValue = '2022年述职材料';
-    }
-  }, []);
+  let { form } = props;
 
   return (
     <Form form={form}>
@@ -47,20 +33,6 @@ export default (props) => {
           x-component="FormLayout"
           x-component-props={{ labelCol: 6, wrapperCol: 16 }}
         >
-          <SchemaField.String
-            name="year"
-            required
-            title="年份"
-            x-decorator="FormItem"
-            x-component="Input"
-          />
-          <SchemaField.String
-            name="name"
-            required
-            title="名称"
-            x-decorator="FormItem"
-            x-component="Input"
-          />
           <SchemaField.Array
             name="uploadList"
             title="上传"

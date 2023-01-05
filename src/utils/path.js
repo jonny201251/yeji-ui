@@ -210,6 +210,7 @@ export const userScorePath = {
   edit: contextPath + '/userScore/edit',
   getScoreList: contextPath + '/userScore/getScoreList',
   edit2: contextPath + '/userScore/edit2',
+  edit3: contextPath + '/userScore/edit3',
   getScoreList2: contextPath + '/userScore/getScoreList2',
   getCheckkObject: contextPath + '/userScore/getCheckkObject',
   getCheckUserType: contextPath + '/userScore/getCheckUserType',

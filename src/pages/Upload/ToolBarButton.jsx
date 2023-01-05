@@ -44,7 +44,7 @@ export default (props) => {
                     }}
                     type={'primary'}
                   >
-                    上传
+                    确定
                   </LoadingButton>
                 </FormButtonGroup>
               </FormDialog.Footer>
@@ -90,17 +90,17 @@ export default (props) => {
             onClick('add');
           }}
         >
-          上传
+          新增
         </Button>
-        <Button
-          icon={<DeleteOutlined />}
-          type="primary"
-          onClick={() => {
-            onClick('delete');
-          }}
-        >
-          批量删除
-        </Button>
+        {/*<Button*/}
+        {/*  icon={<DeleteOutlined />}*/}
+        {/*  type="primary"*/}
+        {/*  onClick={() => {*/}
+        {/*    onClick('delete');*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  批量删除*/}
+        {/*</Button>*/}
       </Space>
     );
   };

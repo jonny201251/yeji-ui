@@ -1,6 +1,17 @@
-import LoadingButton from './LoadingButton'
-import ToolBarButton from './ToolBarButton'
-import OperateButton from './OperateButton'
-import BaseProTable from './BaseProTable'
+import LoadingButton from './LoadingButton';
+import ToolBarButton from './ToolBarButton';
+import OperateButton from './OperateButton';
+import BaseProTable from './BaseProTable';
+import { InputNumber } from 'antd';
 
-export { LoadingButton, ToolBarButton, OperateButton, BaseProTable }
+//NumberPicker
+const NumberPicker = (props) => {
+  return <InputNumber controls={false} {...props} />;
+};
+export {
+  LoadingButton,
+  ToolBarButton,
+  OperateButton,
+  BaseProTable,
+  NumberPicker,
+};

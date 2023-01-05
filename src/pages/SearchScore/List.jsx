@@ -18,8 +18,9 @@ export default () => {
       hideInTable: true,
       valueEnum: {
         2021: { text: '2021' },
+        2022: { text: '2022' },
       },
-      initialValue: '2021',
+      initialValue: '2022',
     },
     { title: '部门', dataIndex: 'depttName', valueType: 'text', search: false },
     {

@@ -19,33 +19,41 @@ export default (props) => {
         },
         (form) => {
           form.setValues(dbRecord);
-          return (
-            <>
-              <Form form={form} record={dbRecord} dialog={dialog} />
-              <FormDialog.Footer>
-                <FormButtonGroup gutter={16} align={'right'}>
-                  <Button onClick={() => dialog.close()}>取消</Button>
-                  <LoadingButton
-                    onClick={async () => {
-                      const values = await form.submit();
-                      if (values) {
-                        const data = await post(uploadPath.edit, values);
-                        if (data) {
-                          actionRef.current.clearSelected();
-                          actionRef.current.reload();
-                          dialog.close();
-                          message.success('上传成功');
+          if (dbRecord.year === 2022) {
+            return (
+              <>
+                <Form form={form} record={dbRecord} dialog={dialog} />
+                <FormDialog.Footer>
+                  <FormButtonGroup gutter={16} align={'right'}>
+                    <Button onClick={() => dialog.close()}>取消</Button>
+                    <LoadingButton
+                      onClick={async () => {
+                        const values = await form.submit();
+                        if (values) {
+                          const data = await post(uploadPath.edit, values);
+                          if (data) {
+                            actionRef.current.clearSelected();
+                            actionRef.current.reload();
+                            dialog.close();
+                            message.success('上传成功');
+                          }
                         }
-                      }
-                    }}
-                    type={'primary'}
-                  >
-                    确定
-                  </LoadingButton>
-                </FormButtonGroup>
-              </FormDialog.Footer>
-            </>
-          );
+                      }}
+                      type={'primary'}
+                    >
+                      确定
+                    </LoadingButton>
+                  </FormButtonGroup>
+                </FormDialog.Footer>
+              </>
+            );
+          } else {
+            return (
+              <>
+                <Form form={form} record={dbRecord} dialog={dialog} />
+              </>
+            );
+          }
         },
       );
       dialog.open();

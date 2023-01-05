@@ -3,7 +3,6 @@ import {
   Form,
   FormItem,
   FormLayout,
-  NumberPicker,
   PreviewText,
   Space,
 } from '@formily/antd';
@@ -11,6 +10,7 @@ import { createSchemaField } from '@formily/react';
 import React, { useEffect, useState } from 'react';
 import { Button, ConfigProvider, message } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
+import { NumberPicker } from '../../components';
 
 const projectArr = [
   '政治素质',
