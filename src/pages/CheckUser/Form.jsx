@@ -48,7 +48,8 @@ export default (props) => {
               field.value === '部门正职领导' ||
               field.value === '部门副职领导' ||
               field.value === '副总师级' ||
-              field.value === '财务副总监'
+              field.value === '财务副总监' ||
+              field.value === '二级专务'
             ) {
               userTypeField.value = '中层领导';
               //
@@ -207,7 +208,8 @@ export default (props) => {
                 if (
                   node.title === '安全生产总监' ||
                   node.title === '副总师级' ||
-                  node.title === '财务副总监'
+                  node.title === '财务副总监' ||
+                  node.title === '二级专务'
                 ) {
                   form.query('userRole').take().value = node.title;
                 }

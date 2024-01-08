@@ -33,10 +33,10 @@ export default (props) => {
       form.query('year').take().pattern = 'readPretty';
     } else {
       let year = form.query('year').take();
-      year.initialValue = '2022';
+      year.initialValue = '2023';
       year.pattern = 'readPretty';
       //
-      form.query('name').take().initialValue = '2022年述职材料';
+      form.query('name').take().initialValue = '2023年述职材料';
     }
   }, []);
 

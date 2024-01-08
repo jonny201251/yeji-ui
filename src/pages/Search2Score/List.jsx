@@ -20,8 +20,9 @@ export default () => {
       valueEnum: {
         2021: { text: '2021' },
         2022: { text: '2022' },
+        2023: { text: '2023' },
       },
-      initialValue: '2022',
+      initialValue: '2023',
     },
     {
       title: '被评人类型',
@@ -29,6 +30,8 @@ export default () => {
       valueType: 'select',
       valueEnum: {
         副总师级: { text: '副总师级' },
+        财务副总监: { text: '财务副总监' },
+        二级专务: { text: '二级专务' },
         部门正职: { text: '部门正职' },
         部门副职: { text: '部门副职' },
         一般人员: { text: '一般人员' },

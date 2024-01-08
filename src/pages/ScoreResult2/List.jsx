@@ -28,8 +28,9 @@ export default () => {
       valueEnum: {
         2021: { text: '2021' },
         2022: { text: '2022' },
+        2023: { text: '2023' },
       },
-      initialValue: '2022',
+      initialValue: '2023',
     },
     {
       align: 'center',

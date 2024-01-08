@@ -27,10 +27,10 @@ export default (props) => {
       form.query('startDate').take().pattern = 'readPretty';
     } else {
       let year = form.query('year').take();
-      year.initialValue = '2022';
+      year.initialValue = '2023';
       year.pattern = 'readPretty';
       //
-      form.query('name').take().initialValue = '2022业绩考核';
+      form.query('name').take().initialValue = '2023业绩考核';
       form.query('status').take().initialValue = '启动';
       //
       let startDate = form.query('startDate').take();

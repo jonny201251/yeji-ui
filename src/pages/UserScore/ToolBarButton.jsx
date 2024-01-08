@@ -17,7 +17,8 @@ export default (props) => {
       user.userType === '公司领导' ||
       user.userRole === '安全生产总监' ||
       user.userRole === '副总师级' ||
-      user.userRole === '财务副总监'
+      user.userRole === '财务副总监' ||
+      user.userRole === '二级专务'
     ) {
       return <Form2 form={form} record={record} checkkObject={checkkObject} />;
     } else {
